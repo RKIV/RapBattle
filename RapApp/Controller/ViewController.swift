@@ -39,7 +39,11 @@ class ViewController: UIViewController {
     
     var rhymeWordsArray = [UILabel]()
     
-
+    let progressBar = YLProgressBar()
+    
+    var timerCount = 10.0
+    
+    
     // MARK: Functions
     
     override func viewDidLoad() {
@@ -64,16 +68,21 @@ class ViewController: UIViewController {
         rhymeWordsArray.append(rhymeFifteen)
         rhymeWordsArray.append(rhymeSixteen)
         
-        var progressBar = YLProgressBar()
+        
+        
+        //Progress Bar Functionality
         progressBar.type = YLProgressBarType.flat
         progressBar.progressTintColor = UIColor.blue
+        progressBar.trackTintColor = UIColor.white
         progressBar.hideStripes = true
-        progressBar.progress = 1
-        progressBar.frame = CGRect(x: self.view.frame.width*0, y: self.view.frame.height*0.2, width: self.view.frame.width, height: self.view.frame.height*0.1)
+        progressBar.setProgress(1, animated: false)
+        progressBar.frame = CGRect(x: self.view.frame.width*0, y: self.view.frame.height*0.2, width: self.view.frame.width*1.0, height: self.view.frame.height*0.1)
         self.view.addSubview(progressBar)
-        
+    
         
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -82,16 +91,42 @@ class ViewController: UIViewController {
     
     //Generate Random Button Function
     @IBAction func randomButtonTapped(_ sender: Any) {
-        print("Generate Button Tapped")
+        
+        //Timer Properties
+//        var timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+
+        //Generate Random Word
         let randomWordNumber = arc4random_uniform(10)
         randomWord.text = String(randomWordNumber)
+        
+        //Generate Rhyme Words
         for word in rhymeWordsArray {
             let randomNumber = arc4random_uniform(10)
             word.text = String(randomNumber)
             print(randomNumber)
         }
+        
+        var counter = 10.0
+        var _ = Timer(timeInterval: 0.01, repeats: counter > 0) { (_) in
+            self.progressBar.progress = CGFloat(counter/10)
+            counter = counter - 0.01
+        }
+
+        
     }
-//    progressBar.progress = progressBar.progress - 0.1
+    
+    
+    
+    //Progress Bar Count Down
+//    @objc func update() {
+//        progressBar.setProgress(CGFloat(timerCount/10), animated: false)
+//        if(timerCount > 0) {
+//            timerCount = timerCount - 0.1
+//            print("Count:\(timerCount)")
+//        } else {
+//            timerCount = 10
+//        }
+//    }
     
 }
 
