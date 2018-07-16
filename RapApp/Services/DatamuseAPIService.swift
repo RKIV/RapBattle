@@ -9,7 +9,7 @@
 import Foundation
 
 struct DatamuseAPIService{
-    func getRhymingSet(for word: String, done: @escaping (([Word]) -> Void)){
+    static func getRhymingSet(for word: String, done: @escaping (([Word]) -> Void)){
         let urlString = "https://api.datamuse.com/words?rel_rhy=\(word)"
         guard let url = URL(string: urlString) else { return }
         
