@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YLProgressBar
 
 class ViewController: UIViewController {
     
@@ -38,11 +39,13 @@ class ViewController: UIViewController {
     
     var rhymeWordsArray = [UILabel]()
     
-    
+
     // MARK: Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
         rhymeWordsArray.append(rhymeOne)
         rhymeWordsArray.append(rhymeTwo)
@@ -60,6 +63,15 @@ class ViewController: UIViewController {
         rhymeWordsArray.append(rhymeFourteen)
         rhymeWordsArray.append(rhymeFifteen)
         rhymeWordsArray.append(rhymeSixteen)
+        
+        var progressBar = YLProgressBar()
+        progressBar.type = YLProgressBarType.flat
+        progressBar.progressTintColor = UIColor.blue
+        progressBar.hideStripes = true
+        progressBar.progress = 1
+        progressBar.frame = CGRect(x: self.view.frame.width*0, y: self.view.frame.height*0.2, width: self.view.frame.width, height: self.view.frame.height*0.1)
+        self.view.addSubview(progressBar)
+        
         
     }
     
@@ -79,6 +91,7 @@ class ViewController: UIViewController {
             print(randomNumber)
         }
     }
+//    progressBar.progress = progressBar.progress - 0.1
     
 }
 

@@ -13,6 +13,7 @@
 		1E13A07020FD0A93001763B2 /* RapApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E13A06E20FD0A93001763B2 /* RapApp.xcdatamodeld */; };
 		1E13A07220FD0A94001763B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E13A07120FD0A94001763B2 /* Assets.xcassets */; };
 		1E13A07520FD0A94001763B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E13A07320FD0A94001763B2 /* LaunchScreen.storyboard */; };
+		D0A1193968141AFBBEEC60E2 /* Pods_RapApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51FAAC68AAE830989339581 /* Pods_RapApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		1E13A07120FD0A94001763B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E13A07420FD0A94001763B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E13A07620FD0A94001763B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2184790339E23E161827B117 /* Pods-RapApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RapApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RapApp/Pods-RapApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A51FAAC68AAE830989339581 /* Pods_RapApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RapApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDE34B4BE0EDCA612F536C38 /* Pods-RapApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RapApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RapApp/Pods-RapApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A1193968141AFBBEEC60E2 /* Pods_RapApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05F0BCDDE3ED88727A059827 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2184790339E23E161827B117 /* Pods-RapApp.debug.xcconfig */,
+				FDE34B4BE0EDCA612F536C38 /* Pods-RapApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		1E13A05B20FD0A93001763B2 = {
 			isa = PBXGroup;
 			children = (
 				1E13A06620FD0A93001763B2 /* RapApp */,
 				1E13A06520FD0A93001763B2 /* Products */,
+				05F0BCDDE3ED88727A059827 /* Pods */,
+				BEA8391666BA57D074CFC8CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +139,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		BEA8391666BA57D074CFC8CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A51FAAC68AAE830989339581 /* Pods_RapApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -130,9 +154,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E13A07920FD0A94001763B2 /* Build configuration list for PBXNativeTarget "RapApp" */;
 			buildPhases = (
+				8A4FFF48D1066FB110F23D56 /* [CP] Check Pods Manifest.lock */,
 				1E13A06020FD0A93001763B2 /* Sources */,
 				1E13A06120FD0A93001763B2 /* Frameworks */,
 				1E13A06220FD0A93001763B2 /* Resources */,
+				80FDD7B89D8E463C69BA7C00 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -188,6 +214,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		80FDD7B89D8E463C69BA7C00 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RapApp/Pods-RapApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/YLProgressBar/YLProgressBar.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YLProgressBar.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RapApp/Pods-RapApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A4FFF48D1066FB110F23D56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RapApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1E13A06020FD0A93001763B2 /* Sources */ = {
@@ -338,6 +403,7 @@
 		};
 		1E13A07A20FD0A94001763B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2184790339E23E161827B117 /* Pods-RapApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -356,6 +422,7 @@
 		};
 		1E13A07B20FD0A94001763B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDE34B4BE0EDCA612F536C38 /* Pods-RapApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
