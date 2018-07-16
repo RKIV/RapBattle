@@ -162,6 +162,22 @@
                     <connections>
                         <outlet property="randomButton" destination="DOh-iM-9sw" id="Zvv-eB-Wi3"/>
                         <outlet property="randomWord" destination="aL4-r9-fJY" id="66d-9o-LTK"/>
+                        <outlet property="rhymeEight" destination="6Dn-cI-Wrm" id="P0A-e1-nnN"/>
+                        <outlet property="rhymeEleven" destination="QVP-xg-CpX" id="3kb-K7-3VY"/>
+                        <outlet property="rhymeFifteen" destination="RFh-rr-1x4" id="Kun-yO-Fal"/>
+                        <outlet property="rhymeFive" destination="jHm-EE-43N" id="0dQ-1h-rQa"/>
+                        <outlet property="rhymeFour" destination="CQq-bh-RXe" id="jBV-7Q-61j"/>
+                        <outlet property="rhymeFourteen" destination="QJh-m3-Zzn" id="nfO-TC-GvL"/>
+                        <outlet property="rhymeNine" destination="cSE-zP-O1i" id="XcM-3f-JFB"/>
+                        <outlet property="rhymeOne" destination="xFR-3q-UZK" id="ZUs-Le-bqJ"/>
+                        <outlet property="rhymeSeven" destination="3B4-JE-IzZ" id="oQu-Hk-HnZ"/>
+                        <outlet property="rhymeSix" destination="fdo-mR-LWP" id="xPv-Tv-khW"/>
+                        <outlet property="rhymeSixteen" destination="LlM-MY-bhN" id="ejw-Hd-q5l"/>
+                        <outlet property="rhymeTen" destination="LK5-uZ-gXh" id="lrS-cc-sjs"/>
+                        <outlet property="rhymeThirteen" destination="Xba-tV-ulN" id="GoV-C9-thg"/>
+                        <outlet property="rhymeThree" destination="NUQ-qs-z5U" id="AbR-fd-SRg"/>
+                        <outlet property="rhymeTwelve" destination="lzK-Hj-CGo" id="5jd-qe-gbD"/>
+                        <outlet property="rhymeTwo" destination="iKo-Tm-ZTo" id="auA-PU-sQ0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

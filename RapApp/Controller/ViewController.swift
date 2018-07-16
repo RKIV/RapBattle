@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     // MARK: Variables
     //Audio Player
     var audioPlayer: AVAudioPlayer!
+    var words: [Word]?
     
     //Outlet Variables
     @IBOutlet weak var randomWord: UILabel!
@@ -77,12 +78,12 @@ class ViewController: UIViewController {
     //Generate Random Button Function
     @IBAction func randomButtonTapped(_ sender: Any) {
         print("Generate Button Tapped")
-        let randomWordNumber = arc4random_uniform(10)
-        randomWord.text = String(randomWordNumber)
-        for word in rhymeWordsArray {
-            let randomNumber = arc4random_uniform(10)
-            word.text = String(randomNumber)
-            print(randomNumber)
+        DatamuseAPIService.getRhymingSet(for: "word") { (words) in
+            DispatchQueue.main.async {
+                for (index, element) in self.rhymeWordsArray.enumerated() {
+                    element.text = words[index].word
+                }
+            }
         }
     }
     
