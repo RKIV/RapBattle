@@ -13,6 +13,7 @@
 		1E13A07020FD0A93001763B2 /* RapApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E13A06E20FD0A93001763B2 /* RapApp.xcdatamodeld */; };
 		1E13A07220FD0A94001763B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E13A07120FD0A94001763B2 /* Assets.xcassets */; };
 		1E13A07520FD0A94001763B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E13A07320FD0A94001763B2 /* LaunchScreen.storyboard */; };
+		1E50DA4420FD68B600476801 /* StringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E50DA4320FD68B600476801 /* StringFormatter.swift */; };
 		FA7AD17F20FD12E50027940A /* DatamuseAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AD17E20FD12E50027940A /* DatamuseAPIService.swift */; };
 		FA7AD18320FD13790027940A /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AD18220FD13790027940A /* WordModel.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		1E13A07120FD0A94001763B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E13A07420FD0A94001763B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E13A07620FD0A94001763B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E50DA4320FD68B600476801 /* StringFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormatter.swift; sourceTree = "<group>"; };
 		FA7AD17E20FD12E50027940A /* DatamuseAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatamuseAPIService.swift; sourceTree = "<group>"; };
 		FA7AD18220FD13790027940A /* WordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 		1E13A08220FD0DDE001763B2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1E50DA4320FD68B600476801 /* StringFormatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E13A06A20FD0A93001763B2 /* ViewController.swift in Sources */,
+				1E50DA4420FD68B600476801 /* StringFormatter.swift in Sources */,
 				1E13A06820FD0A93001763B2 /* AppDelegate.swift in Sources */,
 				FA7AD17F20FD12E50027940A /* DatamuseAPIService.swift in Sources */,
 				1E13A07020FD0A93001763B2 /* RapApp.xcdatamodeld in Sources */,

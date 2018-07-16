@@ -41,6 +41,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var rhymeSixteen: UILabel!
     
     var rhymeWordsArray = [UILabel]()
+    var usedWordsCounter = [Int]()
     
     
     // MARK: Functions
@@ -77,17 +78,43 @@ class ViewController: UIViewController {
     
     //Generate Random Button Function
     @IBAction func randomButtonTapped(_ sender: Any) {
-        print("Generate Button Tapped")
-        DatamuseAPIService.getRhymingSet(for: "word") { (words) in
+        
+        
+        
+        DatamuseAPIService.getRhymingSet(for: "app") { (words) in
             DispatchQueue.main.async {
+                self.randomWord.text = "Word: App"
+                self.randomWord.adjustsFontSizeToFitWidth = true
                 for (index, element) in self.rhymeWordsArray.enumerated() {
-                    element.text = words[index].word
+                    var x = self.generateRandomNumber(arrayCount: words.count)
+                    element.text = words[x].word
+                    element.adjustsFontSizeToFitWidth = true
+                    element.text?.capitalizingFirstLetter()
+                    
+                    print(element.text)
+                    
                 }
             }
         }
+        
     }
     
+    func generateRandomNumber(arrayCount number:Int) -> Int{
+        var randomNumber = arc4random_uniform((UInt32(number)))
+        for used in usedWordsCounter {
+            while randomNumber == used{
+                randomNumber = arc4random_uniform((UInt32(number)))
+            }
+            if used != randomNumber{
+                usedWordsCounter.append(Int(randomNumber))
+            }
+        }
+        return Int(randomNumber)
+    }
 }
+
+
+
 
 extension ViewController: AVAudioPlayerDelegate{
     
