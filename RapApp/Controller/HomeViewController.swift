@@ -17,6 +17,8 @@ class HomeViewController: UIViewController {
     
     var audioPlayer: AVAudioPlayer!
     var words: [Word]?
+    var tracker: AKAmplitudeTracker?
+    var player: AKPlayer?
     
     //Outlet Variables
     @IBOutlet weak var randomWord: UILabel!
@@ -117,21 +119,21 @@ class HomeViewController: UIViewController {
         indexProgressBar = 500
         
         // start the timer
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: "setProgressBar", userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.setProgressBar), userInfo: nil, repeats: true)
         
-        var randomWordGenerated = WordArray.randomWordArray[Int(arc4random_uniform(UInt32(WordArray.randomWordArray.count)))]
+        let randomWordGenerated = WordArray.randomWordArray[Int(arc4random_uniform(UInt32(WordArray.randomWordArray.count)))]
         
         DatamuseAPIService.getRhymingSet(for: randomWordGenerated) { (words) in
             DispatchQueue.main.async {
                 self.randomWord.text = "Word: \(randomWordGenerated)"
                 self.randomWord.adjustsFontSizeToFitWidth = true
-                for (index, element) in self.rhymeWordsArray.enumerated() {
-                    var x = self.generateRandomNumber(arrayCount: words.count)
+                for (_, element) in self.rhymeWordsArray.enumerated() {
+                    let x = self.generateRandomNumber(arrayCount: words.count)
                     element.text = words[x].word
                     element.adjustsFontSizeToFitWidth = true
-                    element.text?.capitalizingFirstLetter()
+                    element.text = element.text?.capitalizingFirstLetter()
                     
-                    print(element.text)
+                    print(element.text ?? "")
                     
                 }
             }
@@ -173,12 +175,43 @@ class HomeViewController: UIViewController {
         if playState == 0{
             playState = 1
             playButton.setImage(UIImage(named: "if_button_pause_red_14773")!, for: UIControlState.normal)
+            assignSound(fileName: "leadloop.wav")
+            player?.play()
+            
         } else {
             playState = 0
             playButton.setImage(UIImage(named: "if_button_play_red_14778")!, for: UIControlState.normal)
+            player?.pause()
+            
         }
         
     }
+    
+    @objc func trackerUpdate(){
+        print(tracker?.amplitude ?? 0)
+    }
+    
+    func assignSound(fileName: String){
+        
+        trackerTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.trackerUpdate), userInfo: nil, repeats: true)
+        
+        do {
+            let file = try AKAudioFile(readFileName: fileName)
+            let player = AKPlayer(audioFile: file)
+            player.isLooping = true
+            
+            let tracker = AKAmplitudeTracker(player)
+            AudioKit.output = tracker
+            self.player = player
+            self.tracker = tracker
+            try AudioKit.start()
+            
+        } catch let error {
+            print("Sound failed:", error)
+        }
+        
+    }
+    
     
 }
 
