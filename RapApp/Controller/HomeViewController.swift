@@ -9,11 +9,12 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     
     // MARK: Variables
     //Audio Player
+    
     var audioPlayer: AVAudioPlayer!
     var words: [Word]?
     
@@ -47,9 +48,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var musicBar: ScrubberBar!
     @IBOutlet weak var playButton: UIButton!
     var playState = 0
+
+    @IBOutlet weak var dataLabel: UILabel!
     
-    
-    // MARK: Functions
+    // MARK: Override Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,16 +86,26 @@ class ViewController: UIViewController {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! SettingsViewController
+        destination.delegate = self
+        
+        if let text = dataLabel?.text {
+            destination.store = text
+        }
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    //Generate Random Button Function
+    //MARK: Generate Random Button Function
     @IBAction func randomButtonTapped(_ sender: Any) {
         
         generateRandomWord()
+        
         
     }
     
@@ -139,6 +151,9 @@ class ViewController: UIViewController {
         }
         return Int(randomNumber)
     }
+
+    
+    //MARK: - Progress
     
     @objc func setProgressBar(){
         
@@ -167,7 +182,13 @@ class ViewController: UIViewController {
     
 }
 
-
+extension HomeViewController: SettingsDelegate {
+    func sendData(input: String) {
+        dataLabel.text = input
+    }
+    
+    
+}
 
 
 

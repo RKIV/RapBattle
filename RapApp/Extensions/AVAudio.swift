@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-extension ViewController: AVAudioPlayerDelegate{
+extension HomeViewController: AVAudioPlayerDelegate{
     
     // playing sound on tap of this button
     func playSong(withName song: String, andExtension fileExtension: String){
