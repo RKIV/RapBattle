@@ -195,7 +195,7 @@ class HomeViewController: UIViewController {
     
     func assignSound(fileName: String){
         
-        trackerTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.trackerUpdate), userInfo: nil, repeats: true)
+        trackerTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.trackerUpdate), userInfo: nil, repeats: true)
         
         do {
             let file = try AKAudioFile(readFileName: fileName)
