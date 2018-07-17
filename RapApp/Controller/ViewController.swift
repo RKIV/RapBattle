@@ -78,12 +78,11 @@ class ViewController: UIViewController {
     
     //Generate Random Button Function
     @IBAction func randomButtonTapped(_ sender: Any) {
+        var randomWordGenerated = WordArray.randomWordArray[Int(arc4random_uniform(UInt32(WordArray.randomWordArray.count)))]
         
-        
-        
-        DatamuseAPIService.getRhymingSet(for: "app") { (words) in
+        DatamuseAPIService.getRhymingSet(for: randomWordGenerated) { (words) in
             DispatchQueue.main.async {
-                self.randomWord.text = "Word: App"
+                self.randomWord.text = "Word: \(randomWordGenerated)"
                 self.randomWord.adjustsFontSizeToFitWidth = true
                 for (index, element) in self.rhymeWordsArray.enumerated() {
                     var x = self.generateRandomNumber(arrayCount: words.count)
