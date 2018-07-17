@@ -14,6 +14,12 @@
 		1E13A07220FD0A94001763B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E13A07120FD0A94001763B2 /* Assets.xcassets */; };
 		1E13A07520FD0A94001763B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E13A07320FD0A94001763B2 /* LaunchScreen.storyboard */; };
 		1E50DA4420FD68B600476801 /* StringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E50DA4320FD68B600476801 /* StringFormatter.swift */; };
+		1E73C8CF20FE5F9F00D227EF /* ScrubberBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E73C8CD20FE5F9F00D227EF /* ScrubberBar.swift */; };
+		1E73C8D020FE5F9F00D227EF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E73C8CE20FE5F9F00D227EF /* Info.plist */; };
+		1E73C8D220FE619D00D227EF /* AVAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E73C8D120FE619D00D227EF /* AVAudio.swift */; };
+		1E73C8D420FE61A800D227EF /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E73C8D320FE61A800D227EF /* ProgressView.swift */; };
+		1E73C8D620FE637400D227EF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E73C8D520FE637400D227EF /* UIColor.swift */; };
+		1E73C8D820FE722A00D227EF /* SpotifyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E73C8D720FE722A00D227EF /* SpotifyAPIService.swift */; };
 		FA59770920FD697B00D564C2 /* WordArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59770820FD697B00D564C2 /* WordArray.swift */; };
 		FA7AD17F20FD12E50027940A /* DatamuseAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AD17E20FD12E50027940A /* DatamuseAPIService.swift */; };
 		FA7AD18320FD13790027940A /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AD18220FD13790027940A /* WordModel.swift */; };
@@ -29,6 +35,13 @@
 		1E13A07420FD0A94001763B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E13A07620FD0A94001763B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E50DA4320FD68B600476801 /* StringFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormatter.swift; sourceTree = "<group>"; };
+		1E73C8CC20FE5F9F00D227EF /* ScrubberBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrubberBar.h; sourceTree = "<group>"; };
+		1E73C8CD20FE5F9F00D227EF /* ScrubberBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrubberBar.swift; sourceTree = "<group>"; };
+		1E73C8CE20FE5F9F00D227EF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E73C8D120FE619D00D227EF /* AVAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAudio.swift; sourceTree = "<group>"; };
+		1E73C8D320FE61A800D227EF /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		1E73C8D520FE637400D227EF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		1E73C8D720FE722A00D227EF /* SpotifyAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPIService.swift; sourceTree = "<group>"; };
 		FA59770820FD697B00D564C2 /* WordArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordArray.swift; sourceTree = "<group>"; };
 		FA7AD17E20FD12E50027940A /* DatamuseAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatamuseAPIService.swift; sourceTree = "<group>"; };
 		FA7AD18220FD13790027940A /* WordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
@@ -72,6 +85,7 @@
 				1E13A08320FD0DE7001763B2 /* Services */,
 				1E13A08120FD0DDA001763B2 /* Helpers */,
 				1E13A08220FD0DDE001763B2 /* Extensions */,
+				1E73C8C420FE5F3700D227EF /* Scrubber Bar */,
 				1E13A07120FD0A94001763B2 /* Assets.xcassets */,
 				1E13A07620FD0A94001763B2 /* Info.plist */,
 				1E13A06E20FD0A93001763B2 /* RapApp.xcdatamodeld */,
@@ -123,6 +137,9 @@
 			isa = PBXGroup;
 			children = (
 				1E50DA4320FD68B600476801 /* StringFormatter.swift */,
+				1E73C8D120FE619D00D227EF /* AVAudio.swift */,
+				1E73C8D320FE61A800D227EF /* ProgressView.swift */,
+				1E73C8D520FE637400D227EF /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -131,8 +148,19 @@
 			isa = PBXGroup;
 			children = (
 				FA7AD17E20FD12E50027940A /* DatamuseAPIService.swift */,
+				1E73C8D720FE722A00D227EF /* SpotifyAPIService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		1E73C8C420FE5F3700D227EF /* Scrubber Bar */ = {
+			isa = PBXGroup;
+			children = (
+				1E73C8CE20FE5F9F00D227EF /* Info.plist */,
+				1E73C8CC20FE5F9F00D227EF /* ScrubberBar.h */,
+				1E73C8CD20FE5F9F00D227EF /* ScrubberBar.swift */,
+			);
+			path = "Scrubber Bar";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E73C8D020FE5F9F00D227EF /* Info.plist in Resources */,
 				1E13A07520FD0A94001763B2 /* LaunchScreen.storyboard in Resources */,
 				1E13A07220FD0A94001763B2 /* Assets.xcassets in Resources */,
 				1E13A06D20FD0A93001763B2 /* Main.storyboard in Resources */,
@@ -207,12 +236,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E13A06A20FD0A93001763B2 /* ViewController.swift in Sources */,
+				1E73C8CF20FE5F9F00D227EF /* ScrubberBar.swift in Sources */,
 				1E50DA4420FD68B600476801 /* StringFormatter.swift in Sources */,
 				1E13A06820FD0A93001763B2 /* AppDelegate.swift in Sources */,
 				FA7AD17F20FD12E50027940A /* DatamuseAPIService.swift in Sources */,
 				1E13A07020FD0A93001763B2 /* RapApp.xcdatamodeld in Sources */,
+				1E73C8D220FE619D00D227EF /* AVAudio.swift in Sources */,
+				1E73C8D620FE637400D227EF /* UIColor.swift in Sources */,
+				1E73C8D420FE61A800D227EF /* ProgressView.swift in Sources */,
 				FA59770920FD697B00D564C2 /* WordArray.swift in Sources */,
 				FA7AD18320FD13790027940A /* WordModel.swift in Sources */,
+				1E73C8D820FE722A00D227EF /* SpotifyAPIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

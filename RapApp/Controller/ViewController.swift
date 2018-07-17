@@ -39,6 +39,15 @@ class ViewController: UIViewController {
     var rhymeWordsArray = [UILabel]()
     var usedWordsCounter = [Int]()
     
+    @IBOutlet weak var progressBar: UIProgressView!
+    var timer = Timer()
+    var indexProgressBar = 500
+    var poseDuration = 500
+    
+    @IBOutlet weak var musicBar: ScrubberBar!
+    @IBOutlet weak var playButton: UIButton!
+    var playState = 0
+    
     
     // MARK: Functions
     
@@ -66,6 +75,12 @@ class ViewController: UIViewController {
             
         }
         
+        progressBar.barHeight = self.view.frame.height*0.05
+        
+        musicBar.barColor = UIColor(red:0.31, green:0.31, blue:0.31, alpha:1.0)
+        musicBar.elapsedColor = UIColor(red:0.44, green:0.14, blue:0.13, alpha:1.0)
+        musicBar.dragIndicatorColor = UIColor(red:0.10, green:0.10, blue:0.11, alpha:1.0)
+        
     }
     
     
@@ -77,6 +92,21 @@ class ViewController: UIViewController {
     
     //Generate Random Button Function
     @IBAction func randomButtonTapped(_ sender: Any) {
+        
+        generateRandomWord()
+        
+    }
+    
+    func generateRandomWord(){
+        
+        // display the first pose
+        timer.invalidate()
+        progressBar.progress = 1.0
+        indexProgressBar = 500
+        
+        // start the timer
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: "setProgressBar", userInfo: nil, repeats: true)
+        
         var randomWordGenerated = WordArray.randomWordArray[Int(arc4random_uniform(UInt32(WordArray.randomWordArray.count)))]
         
         DatamuseAPIService.getRhymingSet(for: randomWordGenerated) { (words) in
@@ -109,29 +139,36 @@ class ViewController: UIViewController {
         }
         return Int(randomNumber)
     }
-}
-
-
-
-
-extension ViewController: AVAudioPlayerDelegate{
     
-    // playing sound on tap of this button
-    func playSong(withName song: String, andExtension fileExtension: String){
-        // setting up url for your soundtrack
-        let soundURL = Bundle.main.url(forResource: song, withExtension: fileExtension)
+    @objc func setProgressBar(){
         
+        // update the display
+        // use poseDuration - 1 so that you display 20 steps of the the progress bar, from 0...19
+        progressBar.progress = Float(indexProgressBar) / Float(poseDuration + 1)
         
+        // increment the counter
+        indexProgressBar -= 1
         
-        do {
-            // setting up audio player to play your sound
-            audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
-        } catch let error{
-            // in case any errors occur
-            print(error)
+        if indexProgressBar == 0 {
+            generateRandomWord()
+        }
+    }
+    
+    @IBAction func playButton(_ sender: Any) {
+        if playState == 0{
+            playState = 1
+            playButton.setImage(UIImage(named: "if_button_pause_red_14773")!, for: UIControlState.normal)
+        } else {
+            playState = 0
+            playButton.setImage(UIImage(named: "if_button_play_red_14778")!, for: UIControlState.normal)
         }
         
-        // playing your audio file
-        audioPlayer.play()
     }
+    
 }
+
+
+
+
+
+
