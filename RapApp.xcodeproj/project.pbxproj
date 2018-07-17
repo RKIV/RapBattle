@@ -23,12 +23,14 @@
 		1E73C8DA20FE907B00D227EF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E73C8D920FE907B00D227EF /* SettingsViewController.swift */; };
 		1E73C8DD20FE90BE00D227EF /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E73C8DB20FE90BE00D227EF /* Settings.storyboard */; };
 		1E73C8DF20FE995200D227EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E73C8DE20FE995200D227EF /* Constants.swift */; };
+		6C546F5E81C7AECF6FDF64CF /* Pods_RapApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2344B71A174341092957E5 /* Pods_RapApp.framework */; };
 		FA59770920FD697B00D564C2 /* WordArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59770820FD697B00D564C2 /* WordArray.swift */; };
 		FA7AD17F20FD12E50027940A /* DatamuseAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AD17E20FD12E50027940A /* DatamuseAPIService.swift */; };
 		FA7AD18320FD13790027940A /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AD18220FD13790027940A /* WordModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C2344B71A174341092957E5 /* Pods_RapApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RapApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E13A06420FD0A93001763B2 /* RapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E13A06720FD0A93001763B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E13A06920FD0A93001763B2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +50,8 @@
 		1E73C8D920FE907B00D227EF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1E73C8DC20FE90BE00D227EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RapApp/Storyboard/Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		1E73C8DE20FE995200D227EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E52C30CC610027D9DA8884F0 /* Pods-RapApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RapApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RapApp/Pods-RapApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F4E9AFDB18B1425CF9055784 /* Pods-RapApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RapApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RapApp/Pods-RapApp.release.xcconfig"; sourceTree = "<group>"; };
 		FA59770820FD697B00D564C2 /* WordArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordArray.swift; sourceTree = "<group>"; };
 		FA7AD17E20FD12E50027940A /* DatamuseAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatamuseAPIService.swift; sourceTree = "<group>"; };
 		FA7AD18220FD13790027940A /* WordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
@@ -58,17 +62,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C546F5E81C7AECF6FDF64CF /* Pods_RapApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		102F07B320B5B4EBD9C1F060 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C2344B71A174341092957E5 /* Pods_RapApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1E13A05B20FD0A93001763B2 = {
 			isa = PBXGroup;
 			children = (
 				1E13A06620FD0A93001763B2 /* RapApp */,
 				1E13A06520FD0A93001763B2 /* Products */,
+				8424700B7A5252B3383F2BAC /* Pods */,
+				102F07B320B5B4EBD9C1F060 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,6 +187,15 @@
 			path = "Scrubber Bar";
 			sourceTree = "<group>";
 		};
+		8424700B7A5252B3383F2BAC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E52C30CC610027D9DA8884F0 /* Pods-RapApp.debug.xcconfig */,
+				F4E9AFDB18B1425CF9055784 /* Pods-RapApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,6 +203,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E13A07920FD0A94001763B2 /* Build configuration list for PBXNativeTarget "RapApp" */;
 			buildPhases = (
+				7698F2EA2BF82AFAF2F30522 /* [CP] Check Pods Manifest.lock */,
 				1E13A06020FD0A93001763B2 /* Sources */,
 				1E13A06120FD0A93001763B2 /* Frameworks */,
 				1E13A06220FD0A93001763B2 /* Resources */,
@@ -239,6 +264,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7698F2EA2BF82AFAF2F30522 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RapApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1E13A06020FD0A93001763B2 /* Sources */ = {
@@ -408,6 +454,7 @@
 		};
 		1E13A07A20FD0A94001763B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E52C30CC610027D9DA8884F0 /* Pods-RapApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -426,6 +473,7 @@
 		};
 		1E13A07B20FD0A94001763B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4E9AFDB18B1425CF9055784 /* Pods-RapApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
