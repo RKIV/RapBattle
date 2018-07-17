@@ -44,7 +44,8 @@ class HomeViewController: UIViewController {
     var usedWordsCounter = [Int]()
     
     @IBOutlet weak var progressBar: UIProgressView!
-    var timer = Timer()
+    var trackerTimer = Timer()
+    var progressBarTimer = Timer()
     var indexProgressBar = 500
     var poseDuration = 500
     
@@ -115,12 +116,12 @@ class HomeViewController: UIViewController {
     func generateRandomWord(){
         
         // display the first pose
-        timer.invalidate()
+        progressBarTimer.invalidate()
         progressBar.progress = 1.0
         indexProgressBar = 500
         
         // start the timer
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.setProgressBar), userInfo: nil, repeats: true)
+        progressBarTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.setProgressBar), userInfo: nil, repeats: true)
         
         let randomWordGenerated = WordArray.randomWordArray[Int(arc4random_uniform(UInt32(WordArray.randomWordArray.count)))]
         
