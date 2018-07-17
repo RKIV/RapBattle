@@ -26,19 +26,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var rhymeOne: UILabel!
     @IBOutlet weak var rhymeTwo: UILabel!
     @IBOutlet weak var rhymeThree: UILabel!
-    @IBOutlet weak var rhymeFour: UILabel!
     @IBOutlet weak var rhymeFive: UILabel!
     @IBOutlet weak var rhymeSix: UILabel!
     @IBOutlet weak var rhymeSeven: UILabel!
-    @IBOutlet weak var rhymeEight: UILabel!
     @IBOutlet weak var rhymeNine: UILabel!
     @IBOutlet weak var rhymeTen: UILabel!
     @IBOutlet weak var rhymeEleven: UILabel!
-    @IBOutlet weak var rhymeTwelve: UILabel!
     @IBOutlet weak var rhymeThirteen: UILabel!
     @IBOutlet weak var rhymeFourteen: UILabel!
     @IBOutlet weak var rhymeFifteen: UILabel!
-    @IBOutlet weak var rhymeSixteen: UILabel!
     
     var rhymeWordsArray = [UILabel]()
     var usedWordsCounter = [Int]()
@@ -54,19 +50,15 @@ class ViewController: UIViewController {
         rhymeWordsArray.append(rhymeOne)
         rhymeWordsArray.append(rhymeTwo)
         rhymeWordsArray.append(rhymeThree)
-        rhymeWordsArray.append(rhymeFour)
         rhymeWordsArray.append(rhymeFive)
         rhymeWordsArray.append(rhymeSix)
         rhymeWordsArray.append(rhymeSeven)
-        rhymeWordsArray.append(rhymeEight)
         rhymeWordsArray.append(rhymeNine)
         rhymeWordsArray.append(rhymeTen)
         rhymeWordsArray.append(rhymeEleven)
-        rhymeWordsArray.append(rhymeTwelve)
         rhymeWordsArray.append(rhymeThirteen)
         rhymeWordsArray.append(rhymeFourteen)
         rhymeWordsArray.append(rhymeFifteen)
-        rhymeWordsArray.append(rhymeSixteen)
         
         
     }
