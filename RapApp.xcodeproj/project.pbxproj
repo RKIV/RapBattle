@@ -20,6 +20,7 @@
 		1E387DF020FFB3C800A81193 /* Beat4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DEA20FFB3C700A81193 /* Beat4.mp3 */; };
 		1E387DF120FFB3C800A81193 /* Beat3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DEB20FFB3C800A81193 /* Beat3.mp3 */; };
 		1E387DF220FFB3C800A81193 /* Beat5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DEC20FFB3C800A81193 /* Beat5.mp3 */; };
+		1E387DF420FFC63400A81193 /* MusicSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E387DF320FFC63400A81193 /* MusicSelection.swift */; };
 		1E50DA4420FD68B600476801 /* StringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E50DA4320FD68B600476801 /* StringFormatter.swift */; };
 		1E73C8CF20FE5F9F00D227EF /* ScrubberBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E73C8CD20FE5F9F00D227EF /* ScrubberBar.swift */; };
 		1E73C8D020FE5F9F00D227EF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E73C8CE20FE5F9F00D227EF /* Info.plist */; };
@@ -54,6 +55,7 @@
 		1E387DEA20FFB3C700A81193 /* Beat4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Beat4.mp3; sourceTree = "<group>"; };
 		1E387DEB20FFB3C800A81193 /* Beat3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Beat3.mp3; sourceTree = "<group>"; };
 		1E387DEC20FFB3C800A81193 /* Beat5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Beat5.mp3; sourceTree = "<group>"; };
+		1E387DF320FFC63400A81193 /* MusicSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelection.swift; sourceTree = "<group>"; };
 		1E50DA4320FD68B600476801 /* StringFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormatter.swift; sourceTree = "<group>"; };
 		1E73C8CC20FE5F9F00D227EF /* ScrubberBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrubberBar.h; sourceTree = "<group>"; };
 		1E73C8CD20FE5F9F00D227EF /* ScrubberBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrubberBar.swift; sourceTree = "<group>"; };
@@ -114,8 +116,8 @@
 		1E13A06620FD0A93001763B2 /* RapApp */ = {
 			isa = PBXGroup;
 			children = (
-				FA6D707C20FED285001A6C6E /* Music */,
 				1E13A06720FD0A93001763B2 /* AppDelegate.swift */,
+				FA6D707C20FED285001A6C6E /* Music */,
 				1E387DE420FF9E9D00A81193 /* View */,
 				1E13A07C20FD0D6E001763B2 /* Model */,
 				1E13A07F20FD0D8A001763B2 /* Controller */,
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				FA7AD18220FD13790027940A /* WordModel.swift */,
+				1E387DF320FFC63400A81193 /* MusicSelection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				1E50DA4420FD68B600476801 /* StringFormatter.swift in Sources */,
 				1E13A06820FD0A93001763B2 /* AppDelegate.swift in Sources */,
 				FADFF73E20FF299600D92AD2 /* String+ContainsWhiteSpace.swift in Sources */,
+				1E387DF420FFC63400A81193 /* MusicSelection.swift in Sources */,
 				FA7AD17F20FD12E50027940A /* DatamuseAPIService.swift in Sources */,
 				1E13A07020FD0A93001763B2 /* RapApp.xcdatamodeld in Sources */,
 				1E73C8D220FE619D00D227EF /* AVAudio.swift in Sources */,

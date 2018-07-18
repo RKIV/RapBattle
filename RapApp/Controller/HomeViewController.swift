@@ -53,7 +53,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     var playState = 0
     
-    var musicSelected = "Beat1.mp3"
+    var musicSelected = UserDefaults.standard.string(forKey: "currentMusic") ?? "Beat1.mp3"
 
     @IBOutlet weak var dataLabel: UILabel!
     
@@ -88,6 +88,8 @@ class HomeViewController: UIViewController {
         musicBar.barColor = UIColor(red:0.31, green:0.31, blue:0.31, alpha:1.0)
         musicBar.elapsedColor = UIColor(red:0.44, green:0.14, blue:0.13, alpha:1.0)
         musicBar.dragIndicatorColor = UIColor(red:0.10, green:0.10, blue:0.11, alpha:1.0)
+        
+        dataLabel.text = musicSelected
         
     }
     
@@ -190,18 +192,15 @@ class HomeViewController: UIViewController {
         }
     }
     
+    var isStarted = false
+    
     @IBAction func playButton(_ sender: Any) {
         if playState == 0{
-            playState = 1
-            playButton.setImage(UIImage(named: "if_button_pause_red_14773")!, for: UIControlState.normal)
             assignSound(fileName: musicSelected)
-            player?.play()
-            
         } else {
             playState = 0
             playButton.setImage(UIImage(named: "if_button_play_red_14778")!, for: UIControlState.normal)
             player?.pause()
-            
         }
         
     }
@@ -215,24 +214,39 @@ class HomeViewController: UIViewController {
         
         trackerTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.trackerUpdate), userInfo: nil, repeats: true)
         
+        playState = 1
+        playButton.setImage(UIImage(named: "if_button_pause_red_14773")!, for: UIControlState.normal)
+        
         do {
-            let file = try AKAudioFile(readFileName: fileName)
-            let player = AKPlayer(audioFile: file)
-            player.isLooping = true
+            if isStarted == true {
+                player?.resume()
+                print("resume")
+            } else {
+
+                
+                let file = try AKAudioFile(readFileName: fileName)
+                let player = AKPlayer(audioFile: file)
+                player.isLooping = true
+                UserDefaults.standard.set(musicSelected, forKey: "currentMusic")
+                UserDefaults.standard.synchronize()
+                
+                let tracker = AKAmplitudeTracker(player)
+                AudioKit.output = tracker
+                self.player = player
+                self.tracker = tracker
+                try AudioKit.start()
+                
+                player.play()
+                isStarted = true
+                print("Play")
+            }
             
-            let tracker = AKAmplitudeTracker(player)
-            AudioKit.output = tracker
-            self.player = player
-            self.tracker = tracker
-            try AudioKit.start()
             
         } catch let error {
             print("Sound failed:", error)
         }
         
     }
-    
-    
 }
 
 
