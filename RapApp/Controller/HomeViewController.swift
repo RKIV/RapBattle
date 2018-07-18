@@ -36,9 +36,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var rhymeSeven: UILabel!
     @IBOutlet weak var rhymeEight: UILabel!
     @IBOutlet weak var rhymeNine: UILabel!
-    @IBOutlet weak var rhymeTen: UILabel!
-    @IBOutlet weak var rhymeEleven: UILabel!
-    @IBOutlet weak var rhymeTwelve: UILabel!
     
     var rhymeWordsArray = [UILabel]()
     var usedWordsCounter = [Int]()
@@ -46,8 +43,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     var trackerTimer = Timer()
     var progressBarTimer = Timer()
-    var indexProgressBar = 500
-    var poseDuration = 500
+    var indexProgressBar = 1000
+    var poseDuration = 1000
     
     @IBOutlet weak var musicBar: ScrubberBar!
     @IBOutlet weak var playButton: UIButton!
@@ -59,6 +56,9 @@ class HomeViewController: UIViewController {
     @IBOutlet  weak var scrubberBar: ScrubberBar!
     
     @IBOutlet weak var dataLabel: UILabel!
+    
+    
+    @IBOutlet weak var musicSetting: UIButton!
     
     // MARK: Override Functions
     
@@ -76,9 +76,6 @@ class HomeViewController: UIViewController {
         rhymeWordsArray.append(rhymeSeven)
         rhymeWordsArray.append(rhymeEight)
         rhymeWordsArray.append(rhymeNine)
-        rhymeWordsArray.append(rhymeTen)
-        rhymeWordsArray.append(rhymeEleven)
-        rhymeWordsArray.append(rhymeTwelve)
         
         var counter = 1
         for i in rhymeWordsArray{
@@ -96,12 +93,15 @@ class HomeViewController: UIViewController {
         musicBar.barColor = UIColor(red:0.31, green:0.31, blue:0.31, alpha:1.0)
         musicBar.elapsedColor = UIColor(red:0.44, green:0.14, blue:0.13, alpha:1.0)
         musicBar.dragIndicatorColor = UIColor(red:0.10, green:0.10, blue:0.11, alpha:1.0)
+        musicBar.setProgress(progress: 0.5)
         
         musicBar.addTouchHandlers()
         
         dataLabel.text = musicSelected
         
         musicBar.delegate = self
+        
+        musicSetting.layer.cornerRadius = 6
         
     }
     
@@ -132,12 +132,10 @@ class HomeViewController: UIViewController {
     func generateRandomWord(){
         
         // display the first pose
-        progressBarTimer.invalidate()
         progressBar.progress = 1.0
-        indexProgressBar = 500
+        indexProgressBar = 1000
         
         // start the timer
-        progressBarTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.setProgressBar), userInfo: nil, repeats: true)
         
         let randomWordGenerated = WordArray.randomWordArray[Int(arc4random_uniform(UInt32(WordArray.randomWordArray.count)))]
         
@@ -212,10 +210,12 @@ class HomeViewController: UIViewController {
         
         if playState == 0{
             assignSound(fileName: musicSelected)
+            progressBarTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.setProgressBar), userInfo: nil, repeats: true)
         } else {
             playState = 0
             playButton.setImage(UIImage(named: "if_button_play_red_14778")!, for: UIControlState.normal)
             player?.pause()
+            progressBarTimer.invalidate()
         }
         
     }
