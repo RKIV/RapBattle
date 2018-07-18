@@ -92,12 +92,7 @@ class HomeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! SettingsViewController
-        destination.delegate = self
-        
-        if let text = dataLabel?.text {
-            destination.store = text
-        }
-        
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -230,16 +225,13 @@ class HomeViewController: UIViewController {
         
     }
     
-    
+    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue){
+        //        notes = CoreDataHelper.retrieveNotes()
+    }
 }
 
-extension HomeViewController: SettingsDelegate {
-    func sendData(input: String) {
-        dataLabel.text = input
-    }
-    
-    
-}
+
+
 
 
 

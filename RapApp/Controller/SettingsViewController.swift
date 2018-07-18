@@ -10,35 +10,70 @@ import Foundation
 
 import UIKit
 
-protocol SettingsDelegate: class {
-    func sendData(input: String)
-}
 
-class SettingsViewController: UIViewController {
+
+class SettingsViewController: UIViewController{
     
-    weak var delegate: SettingsDelegate?
     
     @IBOutlet weak var homeButton: UIButton!
     
-    var store: String?
+    @IBOutlet weak var musicTableView: UITableView!
     
     @IBOutlet weak var textField: UITextField!
     
-    @IBAction func homeButtonTapped(_ sender: Any) {
-        
-        self.dismiss(animated: true, completion: nil)
-        
-        delegate?.sendData(input: textField.text!)
-
-    }
+    @IBOutlet weak var musicLabel: UILabel!
+    
+    var store: String?
+    
+    var musicArray = ["1","2","3"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let store = store {
             textField.text = store
         }
+        
+        musicTableView.dataSource = self
+        
+    }
+    
+    @IBAction func homeButtonTapped(_ sender: Any) {
+        
+//        self.dismiss(animated: true, completion: ni)
+        
     }
     
 
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! HomeViewController
+        let index = musicTableView.indexPathForSelectedRow?.row
+        destination.dataLabel.text = musicArray[index!]
+    }
+    
 }
+
+extension SettingsViewController: UITableViewDataSource{
+    
+    func tableView(_ tableView:UITableView!, numberOfRowsInSection section: Int) -> Int {
+        return musicArray.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "musicCell", for: indexPath) as! MusicSelectionCell
+        print("Cell1: \(cell)")
+        return cell
+    }
+    
+    func configure(cell: MusicSelectionCell, atIndexPath indexPath: IndexPath) {
+        //        let user = users[indexPath.row]
+        //
+        //        cell.usernameLabel.text = user.username
+        //        cell.followButton.isSelected = user.isFollowed
+    }
+    
+}
+
+
+
