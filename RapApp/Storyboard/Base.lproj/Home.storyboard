@@ -257,6 +257,7 @@
                         <outlet property="rhymeThree" destination="McW-4C-kyC" id="o2S-6I-31R"/>
                         <outlet property="rhymeTwelve" destination="c7n-Yc-BIS" id="Y5f-3j-qeD"/>
                         <outlet property="rhymeTwo" destination="HNX-eP-uGd" id="VPB-9a-n2f"/>
+                        <outlet property="scrubberBar" destination="rsO-rO-d47" id="Sa8-aa-XRn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -53,8 +53,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     var playState = 0
     
+    var isStarted = false
     var musicSelected = UserDefaults.standard.string(forKey: "currentMusic") ?? "Beat1.mp3"
-
+    
+    @IBOutlet  weak var scrubberBar: ScrubberBar!
+    
     @IBOutlet weak var dataLabel: UILabel!
     
     // MARK: Override Functions
@@ -77,9 +80,12 @@ class HomeViewController: UIViewController {
         rhymeWordsArray.append(rhymeEleven)
         rhymeWordsArray.append(rhymeTwelve)
         
+        var counter = 1
         for i in rhymeWordsArray{
+            i.text = "Rhyme\(counter)"
             i.layer.masksToBounds = true
             i.layer.cornerRadius = 6
+            counter += 1
             
         }
         
@@ -88,16 +94,20 @@ class HomeViewController: UIViewController {
         musicBar.barColor = UIColor(red:0.31, green:0.31, blue:0.31, alpha:1.0)
         musicBar.elapsedColor = UIColor(red:0.44, green:0.14, blue:0.13, alpha:1.0)
         musicBar.dragIndicatorColor = UIColor(red:0.10, green:0.10, blue:0.11, alpha:1.0)
+        musicBar.addTouchHandlers()
         
         dataLabel.text = musicSelected
+        
+        musicBar.delegate = self
         
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! SettingsViewController
-
+        
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -143,7 +153,7 @@ class HomeViewController: UIViewController {
                     }
                     
                     
-//                    print(element.text ?? "")
+                    //                    print(element.text ?? "")
                     
                 }
             }
@@ -173,7 +183,7 @@ class HomeViewController: UIViewController {
         usedWordsCounter.append(randomNumber)
         return Int(randomNumber)
     }
-
+    
     
     //MARK: - Progress
     
@@ -192,9 +202,11 @@ class HomeViewController: UIViewController {
         }
     }
     
-    var isStarted = false
+    
     
     @IBAction func playButton(_ sender: Any) {
+        
+        
         if playState == 0{
             assignSound(fileName: musicSelected)
         } else {
@@ -210,6 +222,7 @@ class HomeViewController: UIViewController {
         randomWord.font = UIFont(name: randomWord.font.fontName, size: CGFloat(fontSize))
     }
     
+    
     func assignSound(fileName: String){
         
         trackerTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.trackerUpdate), userInfo: nil, repeats: true)
@@ -222,11 +235,12 @@ class HomeViewController: UIViewController {
                 player?.resume()
                 print("resume")
             } else {
-
+                
                 
                 let file = try AKAudioFile(readFileName: fileName)
                 let player = AKPlayer(audioFile: file)
                 player.isLooping = true
+                
                 UserDefaults.standard.set(musicSelected, forKey: "currentMusic")
                 UserDefaults.standard.synchronize()
                 
@@ -239,6 +253,7 @@ class HomeViewController: UIViewController {
                 player.play()
                 isStarted = true
                 print("Play")
+                
             }
             
             
@@ -247,9 +262,24 @@ class HomeViewController: UIViewController {
         }
         
     }
+    
+    
+    
 }
 
 
+extension HomeViewController: ScrubberBarDelegate{
+    
+    func scrubberBar(bar: ScrubberBar, didScrubToProgress: Float) {
+        
+    }
+    
+    func didScrub() {
+        player?.rate = Double(scrubberBar.elapsedBar.frame.maxX/self.view.frame.width)+0.5
+    }
+    
+    
+}
 
 
 

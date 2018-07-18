@@ -24,6 +24,7 @@ import UIKit
 
 public protocol ScrubberBarDelegate: class {
     func scrubberBar(bar: ScrubberBar, didScrubToProgress: Float)
+    func didScrub()
 }
 
 private extension Comparable {
@@ -87,7 +88,8 @@ public class ScrubberBar: UIControl {
     let topBar = UIView(frame: CGRect.zero)
     let elapsedBar = UIView(frame: CGRect.zero)
     var isDragging = false
-    public weak var delegate: ScrubberBarDelegate?
+//    public weak var delegate: ScrubberBarDelegate?
+    var delegate: ScrubberBarDelegate?
     
     override init(frame: CGRect) {
         super.init(frame:frame)
@@ -174,6 +176,7 @@ public class ScrubberBar: UIControl {
             setNeedsLayout()
             
         }
+        delegate?.didScrub()
     }
     
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
