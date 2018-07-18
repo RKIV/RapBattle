@@ -22,14 +22,23 @@ struct DatamuseAPIService{
             //Implement JSON decoding and parsing
             do {
                 //Decode retrived data with JSONDecoder and assing type of Article object
-                let wordsData = try JSONDecoder().decode([Word].self, from: data)
+                var wordsData = try JSONDecoder().decode([Word].self, from: data)
                 
                 
+                // range will be nil if no whitespace is found
+
+                var indexesToRemove = [Int]()
+                for (index, element) in wordsData.enumerated(){
+                    if element.word.count <= 3 || element.word.containsWhitespace{
+                        indexesToRemove.append(index)
+                    }
+                }
+                
+                for (index, element) in indexesToRemove.enumerated(){
+                    wordsData.remove(at: element - index)
+                }
                 done(wordsData)
                 //Get back to the main queue
-                DispatchQueue.main.async {
-                    //print(articlesData)
-                }
                 
             } catch let jsonError {
                 print(jsonError)

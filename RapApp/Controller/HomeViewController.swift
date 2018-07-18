@@ -107,7 +107,7 @@ class HomeViewController: UIViewController {
     
     //MARK: Generate Random Button Function
     @IBAction func randomButtonTapped(_ sender: Any) {
-        
+        usedWordsCounter = []
         generateRandomWord()
         
         
@@ -130,12 +130,17 @@ class HomeViewController: UIViewController {
                 self.randomWord.text = "Word: \(randomWordGenerated)"
                 self.randomWord.adjustsFontSizeToFitWidth = true
                 for (_, element) in self.rhymeWordsArray.enumerated() {
-                    let x = self.generateRandomNumber(arrayCount: words.count)
-                    element.text = words[x].word
+                    let index = self.generateRandomNumber(arrayCount: words.count)
                     element.adjustsFontSizeToFitWidth = true
-                    element.text = element.text?.capitalizingFirstLetter()
+                    if let _index = index {
+                        element.text = words[_index].word
+                        element.text = element.text?.capitalizingFirstLetter()
+                    } else {
+                        element.text = ""
+                    }
                     
-                    print(element.text ?? "")
+                    
+//                    print(element.text ?? "")
                     
                 }
             }
@@ -143,16 +148,26 @@ class HomeViewController: UIViewController {
         
     }
     
-    func generateRandomNumber(arrayCount number:Int) -> Int{
-        var randomNumber = arc4random_uniform((UInt32(number)))
-        for used in usedWordsCounter {
-            while randomNumber == used{
-                randomNumber = arc4random_uniform((UInt32(number)))
-            }
-            if used != randomNumber{
-                usedWordsCounter.append(Int(randomNumber))
+    func generateRandomNumber(arrayCount number:Int) -> Int?{
+        print(usedWordsCounter.count, number)
+        if usedWordsCounter.count == number{
+            return nil
+        }
+        var numberNotFound = true
+        var randomNumber = 0
+        while(numberNotFound){
+            numberNotFound = false
+            randomNumber = Int(arc4random_uniform((UInt32(number))))
+            for used in usedWordsCounter {
+                if randomNumber == used{
+                    numberNotFound = true
+                    break
+                }else{
+                    continue
+                }
             }
         }
+        usedWordsCounter.append(randomNumber)
         return Int(randomNumber)
     }
 
@@ -169,6 +184,7 @@ class HomeViewController: UIViewController {
         indexProgressBar -= 1
         
         if indexProgressBar == 0 {
+            usedWordsCounter = []
             generateRandomWord()
         }
     }
@@ -177,7 +193,7 @@ class HomeViewController: UIViewController {
         if playState == 0{
             playState = 1
             playButton.setImage(UIImage(named: "if_button_pause_red_14773")!, for: UIControlState.normal)
-            assignSound(fileName: "leadloop.wav")
+            assignSound(fileName: "Beat1.mp3")
             player?.play()
             
         } else {

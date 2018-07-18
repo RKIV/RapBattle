@@ -10,6 +10,6 @@ import UIKit
 
 struct Word: Codable {
     var word: String
-    var score: Int
+    var score: Int?
     var numSyllables: Int
 }
