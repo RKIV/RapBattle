@@ -89,11 +89,14 @@ class HomeViewController: UIViewController {
             
         }
         
+        randomButton.layer.cornerRadius = 6
+        
         progressBar.barHeight = self.view.frame.height*0.05
         
         musicBar.barColor = UIColor(red:0.31, green:0.31, blue:0.31, alpha:1.0)
         musicBar.elapsedColor = UIColor(red:0.44, green:0.14, blue:0.13, alpha:1.0)
         musicBar.dragIndicatorColor = UIColor(red:0.10, green:0.10, blue:0.11, alpha:1.0)
+        
         musicBar.addTouchHandlers()
         
         dataLabel.text = musicSelected
