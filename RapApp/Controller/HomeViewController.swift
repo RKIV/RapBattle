@@ -52,6 +52,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var musicBar: ScrubberBar!
     @IBOutlet weak var playButton: UIButton!
     var playState = 0
+    
+    var musicSelected = "Beat1.mp3"
 
     @IBOutlet weak var dataLabel: UILabel!
     
@@ -98,6 +100,10 @@ class HomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue){
+        
     }
     
     //MARK: Generate Random Button Function
@@ -188,7 +194,7 @@ class HomeViewController: UIViewController {
         if playState == 0{
             playState = 1
             playButton.setImage(UIImage(named: "if_button_pause_red_14773")!, for: UIControlState.normal)
-            assignSound(fileName: "Beat1.mp3")
+            assignSound(fileName: musicSelected)
             player?.play()
             
         } else {
@@ -201,7 +207,8 @@ class HomeViewController: UIViewController {
     }
     
     @objc func trackerUpdate(){
-        print(tracker?.amplitude ?? 0)
+        let fontSize = 34 * (1 + (tracker?.amplitude)!)
+        randomWord.font = UIFont(name: randomWord.font.fontName, size: CGFloat(fontSize))
     }
     
     func assignSound(fileName: String){
@@ -225,9 +232,7 @@ class HomeViewController: UIViewController {
         
     }
     
-    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue){
-        //        notes = CoreDataHelper.retrieveNotes()
-    }
+    
 }
 
 

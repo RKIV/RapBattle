@@ -15,17 +15,13 @@ import UIKit
 class SettingsViewController: UIViewController{
     
     
-    @IBOutlet weak var homeButton: UIButton!
-    
     @IBOutlet weak var musicTableView: UITableView!
-    
-    @IBOutlet weak var textField: UITextField!
     
     @IBOutlet weak var musicLabel: UILabel!
     
     var store: String?
     
-    var musicArray = ["1","2","3"]
+    var musicArray = ["Beat1.mp3","Beat2.mp3","Beat3.mp3", "Beat4.mp3", "Beat5.mp3", "Beat6.mp3",]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,25 +33,18 @@ class SettingsViewController: UIViewController{
         
     }
     
-    @IBAction func homeButtonTapped(_ sender: Any) {
-        
-//        self.dismiss(animated: true, completion: ni)
-        
-    }
-    
-
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! HomeViewController
         let index = musicTableView.indexPathForSelectedRow?.row
         destination.dataLabel.text = musicArray[index!]
+        destination.musicSelected = musicArray[index!]
     }
     
 }
 
 extension SettingsViewController: UITableViewDataSource{
     
-    func tableView(_ tableView:UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return musicArray.count
     }
     
@@ -63,14 +52,14 @@ extension SettingsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "musicCell", for: indexPath) as! MusicSelectionCell
         print("Cell1: \(cell)")
+        configureCell(cell: cell, forIndexPath: indexPath)
         return cell
     }
     
-    func configure(cell: MusicSelectionCell, atIndexPath indexPath: IndexPath) {
-        //        let user = users[indexPath.row]
-        //
-        //        cell.usernameLabel.text = user.username
-        //        cell.followButton.isSelected = user.isFollowed
+    
+    func configureCell(cell: MusicSelectionCell, forIndexPath indexPath: IndexPath){
+        
+        cell.musicLabel.text = musicArray[indexPath.row]
     }
     
 }
