@@ -43,8 +43,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     var trackerTimer = Timer()
     var progressBarTimer = Timer()
-    var indexProgressBar = 1000
-    var poseDuration = 1000
+    var indexProgressBar = 2000
+    var poseDuration = 2000
     
     @IBOutlet weak var musicBar: ScrubberBar!
     @IBOutlet weak var playButton: UIButton!
@@ -55,10 +55,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet  weak var scrubberBar: ScrubberBar!
     
-    @IBOutlet weak var dataLabel: UILabel!
-    
-    
-    @IBOutlet weak var musicSetting: UIButton!
+    @IBOutlet weak var musicNameButton: UIButton!
     
     // MARK: Override Functions
     
@@ -77,14 +74,6 @@ class HomeViewController: UIViewController {
         rhymeWordsArray.append(rhymeEight)
         rhymeWordsArray.append(rhymeNine)
         
-        var counter = 1
-        for i in rhymeWordsArray{
-            i.text = "Rhyme\(counter)"
-            i.layer.masksToBounds = true
-            i.layer.cornerRadius = 6
-            counter += 1
-            
-        }
         
         randomButton.layer.cornerRadius = 6
         
@@ -97,11 +86,12 @@ class HomeViewController: UIViewController {
         
         musicBar.addTouchHandlers()
         
-        dataLabel.text = musicSelected
+        musicNameButton.setTitle(musicSelected, for: .normal)
         
         musicBar.delegate = self
         
-        musicSetting.layer.cornerRadius = 6
+        playButton.setTitle("Play", for: .normal)
+        playButton.setTitle("Pause", for: .selected)
         
     }
     
@@ -133,7 +123,7 @@ class HomeViewController: UIViewController {
         
         // display the first pose
         progressBar.progress = 1.0
-        indexProgressBar = 1000
+        indexProgressBar = 2000
         
         // start the timer
         
@@ -141,7 +131,7 @@ class HomeViewController: UIViewController {
         
         DatamuseAPIService.getRhymingSet(for: randomWordGenerated) { (words) in
             DispatchQueue.main.async {
-                self.randomWord.text = "Word: \(randomWordGenerated)"
+                self.randomWord.text = randomWordGenerated
                 self.randomWord.adjustsFontSizeToFitWidth = true
                 for (_, element) in self.rhymeWordsArray.enumerated() {
                     let index = self.generateRandomNumber(arrayCount: words.count)
@@ -209,11 +199,13 @@ class HomeViewController: UIViewController {
         
         
         if playState == 0{
+            playState = 1
+            playButton.isSelected = true
             assignSound(fileName: musicSelected)
             progressBarTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.setProgressBar), userInfo: nil, repeats: true)
         } else {
             playState = 0
-            playButton.setImage(UIImage(named: "if_button_play_red_14778")!, for: UIControlState.normal)
+            playButton.isSelected = false
             player?.pause()
             progressBarTimer.invalidate()
         }
@@ -221,7 +213,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func trackerUpdate(){
-        let fontSize = 34 * (1 + (tracker?.amplitude)!)
+        let fontSize = 40 * (1 + (tracker?.amplitude)!)
         randomWord.font = UIFont(name: randomWord.font.fontName, size: CGFloat(fontSize))
     }
     
@@ -229,9 +221,6 @@ class HomeViewController: UIViewController {
     func assignSound(fileName: String){
         
         trackerTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.trackerUpdate), userInfo: nil, repeats: true)
-        
-        playState = 1
-        playButton.setImage(UIImage(named: "if_button_pause_red_14773")!, for: UIControlState.normal)
         
         do {
             if isStarted == true {

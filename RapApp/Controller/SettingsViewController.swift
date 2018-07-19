@@ -31,13 +31,13 @@ class SettingsViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! HomeViewController
         let index = musicTableView.indexPathForSelectedRow?.row
-        destination.dataLabel.text = destination.musicSelected
         if destination.musicSelected == musicArray[index!]{
             destination.isStarted = true
         } else {
             destination.player?.stop()
             destination.isStarted = false
             destination.musicSelected = musicArray[index!]
+            destination.musicNameButton.setTitle(destination.musicSelected, for: .normal)
         }
         destination.assignSound(fileName: destination.musicSelected)
         
