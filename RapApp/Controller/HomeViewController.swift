@@ -93,6 +93,7 @@ class HomeViewController: UIViewController {
         
         playButton.setTitle("Play", for: .normal)
         playButton.setTitle("Pause", for: .selected)
+        playButton.layer.cornerRadius = 6
         
     }
     
@@ -115,17 +116,16 @@ class HomeViewController: UIViewController {
     //MARK: Generate Random Button Function
     @IBAction func randomButtonTapped(_ sender: Any) {
         usedWordsCounter = []
-        generateRandomWord()
+        generateRandomWords()
         
         
     }
     
-    func generateRandomWord(){
+    func generateRandomWords(){
         
         // display the first pose
         progressBar.progress = 1.0
         indexProgressBar = 2000
-        
         // start the timer
         
         let randomWordGenerated = WordArray.randomWordArray[Int(arc4random_uniform(UInt32(WordArray.randomWordArray.count)))]
@@ -206,7 +206,7 @@ class HomeViewController: UIViewController {
         
         if indexProgressBar == 0 {
             usedWordsCounter = []
-            generateRandomWord()
+            generateRandomWords()
         }
     }
     
