@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import AudioKit
+import Foundation
 
 class HomeViewController: UIViewController {
     
@@ -92,6 +93,7 @@ class HomeViewController: UIViewController {
         
         playButton.setTitle("Play", for: .normal)
         playButton.setTitle("Pause", for: .selected)
+        playButton.layer.cornerRadius = 6
         
         
         UIApplication.shared.isIdleTimerDisabled = true
@@ -127,7 +129,7 @@ class HomeViewController: UIViewController {
     //MARK: Generate Random Button Function
     @IBAction func randomButtonTapped(_ sender: Any) {
         usedWordsCounter = []
-        generateRandomWord()
+        generateRandomWords()
         
 //        appDelegate.orientationLock = .portraitUpsideDown
 //        let value = UIInterfaceOrientationMask.portraitUpsideDown
@@ -137,60 +139,77 @@ class HomeViewController: UIViewController {
     }
     
     
-    func generateRandomWord(){
+
+
+    func generateRandomWords(){
         
         // display the first pose
         progressBar.progress = 1.0
         indexProgressBar = 2000
-        
         // start the timer
         
         let randomWordGenerated = WordArray.randomWordArray[Int(arc4random_uniform(UInt32(WordArray.randomWordArray.count)))]
         
         DatamuseAPIService.getRhymingSet(for: randomWordGenerated) { (words) in
             DispatchQueue.main.async {
+                //Setting the random word label
                 self.randomWord.text = randomWordGenerated
                 self.randomWord.adjustsFontSizeToFitWidth = true
+                var usedIndeces: [Int] = []
                 for (_, element) in self.rhymeWordsArray.enumerated() {
-                    let index = self.generateRandomNumber(arrayCount: words.count)
+                    let index = self.generateRandomRhymeWord(arrayCount: words, used: usedIndeces)
                     element.adjustsFontSizeToFitWidth = true
-                    if let _index = index {
-                        element.text = words[_index].word
+                    if let index = index{
+                        element.text = words[index].word
+//                        print(words[index].frequency)
                         element.text = element.text?.capitalizingFirstLetter()
-                    } else {
+                        usedIndeces.append(index)
+                    } else{
                         element.text = ""
                     }
-                    
-                    
-                    //                    print(element.text ?? "")
-                    
                 }
+            }
+        }
+    }
+    
+    func generateRandomRhymeWord(arrayCount array: [Word], used: [Int]) -> Int?{
+        if used.count == array.count{
+            return nil
+        }
+        var chanceArray: [Double] = []
+        var total: Double = 0
+        var indexLocation: Int = 0
+        for (index, word) in array.enumerated(){
+            if used.contains(index){
+                chanceArray.append(total)
+                continue
+            }
+            chanceArray.append(total)
+            total += pow(word.frequency!, 2)
+        }
+        var whileFail = 0
+        while(true){
+            if whileFail > 150{
+                return nil
+            }
+            whileFail += 1
+            let randomNumber = total * Double(CGFloat(Float(arc4random()) / Float(UINT32_MAX)))
+            
+            for (index, element) in chanceArray.enumerated(){
+                if randomNumber > element{
+                    indexLocation = index
+                } else {
+                    break
+                }
+            }
+            if used.contains(indexLocation){
+                continue
+            } else{
+                break
             }
         }
         
-    }
-    
-    func generateRandomNumber(arrayCount number:Int) -> Int?{
-        print(usedWordsCounter.count, number)
-        if usedWordsCounter.count == number{
-            return nil
-        }
-        var numberNotFound = true
-        var randomNumber = 0
-        while(numberNotFound){
-            numberNotFound = false
-            randomNumber = Int(arc4random_uniform((UInt32(number))))
-            for used in usedWordsCounter {
-                if randomNumber == used{
-                    numberNotFound = true
-                    break
-                }else{
-                    continue
-                }
-            }
-        }
-        usedWordsCounter.append(randomNumber)
-        return Int(randomNumber)
+        return indexLocation
     }
     
     
@@ -207,7 +226,7 @@ class HomeViewController: UIViewController {
         
         if indexProgressBar == 0 {
             usedWordsCounter = []
-            generateRandomWord()
+            generateRandomWords()
         }
     }
     

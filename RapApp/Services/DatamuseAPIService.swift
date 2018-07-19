@@ -10,7 +10,7 @@ import Foundation
 
 struct DatamuseAPIService{
     static func getRhymingSet(for word: String, done: @escaping (([Word]) -> Void)){
-        let urlString = "https://api.datamuse.com/words?rel_rhy=\(word)"
+        let urlString = "https://api.datamuse.com/words?md=f,p&rel_rhy=\(word)"
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -29,6 +29,8 @@ struct DatamuseAPIService{
 
                 var indexesToRemove = [Int]()
                 for (index, element) in wordsData.enumerated(){
+                    wordsData[index].tags.reverse()
+                    wordsData[index].frequency = Double(wordsData[index].tags[0].components(separatedBy: ":")[1])
                     if element.word.count <= 3 || element.word.containsWhitespace{
                         indexesToRemove.append(index)
                     }
@@ -37,6 +39,7 @@ struct DatamuseAPIService{
                 for (index, element) in indexesToRemove.enumerated(){
                     wordsData.remove(at: element - index)
                 }
+                wordsData = wordsData.sorted(by: { $0.frequency! > $1.frequency! })
                 done(wordsData)
                 //Get back to the main queue
                 

@@ -14,7 +14,7 @@ class EditRapViewController: UIViewController {
     @IBOutlet weak var editRapTextView: UITextView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var rapNote: rapNote
+    var rapNote: RapNote?
     
     override func viewDidLoad() {
         super.viewDidLoad()
