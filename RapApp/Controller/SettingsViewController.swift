@@ -33,6 +33,7 @@ class SettingsViewController: UIViewController{
         let index = musicTableView.indexPathForSelectedRow?.row
         if destination.musicSelected == musicArray[index!]{
             destination.isStarted = true
+            destination.playButton.isSelected = true
         } else {
             destination.player?.stop()
             destination.isStarted = false

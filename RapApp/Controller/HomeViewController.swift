@@ -231,7 +231,11 @@ class HomeViewController: UIViewController {
     
     @IBAction func playButton(_ sender: Any) {
         
+        testPlayButton()
         
+    }
+    
+    func testPlayButton() {
         if playState == 0{
             playState = 1
             playButton.isSelected = true
@@ -243,7 +247,6 @@ class HomeViewController: UIViewController {
             player?.pause()
             progressBarTimer.invalidate()
         }
-        
     }
     
     @objc func trackerUpdate(){
