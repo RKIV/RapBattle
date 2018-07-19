@@ -59,6 +59,10 @@ extension SettingsViewController: UITableViewDataSource{
         return cell
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     
     func configureCell(cell: MusicSelectionCell, forIndexPath indexPath: IndexPath){
         

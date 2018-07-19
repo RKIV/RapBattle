@@ -10,6 +10,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="efk-Xp-QET">
+            <objects>
+                <viewController id="qH6-s3-Ia7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LdX-Je-Pnx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="j7C-2i-Qll"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CUr-5n-QJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="417" y="141"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -198,7 +213,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Note"/>
                                 <connections>
-                                    <segue destination="8Fi-M2-uaT" kind="show" identifier="toNotes" id="pJY-6S-nH0"/>
+                                    <segue destination="qH6-s3-Ia7" kind="show" id="pJY-6S-nH0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -259,14 +274,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSc-8a-b60" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1748" y="133.13343328335833"/>
-        </scene>
-        <!--Notes-->
-        <scene sceneID="leY-pa-Qti">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Notes" id="8Fi-M2-uaT" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V04-aO-MgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="417" y="141"/>
         </scene>
     </scenes>
 </document>

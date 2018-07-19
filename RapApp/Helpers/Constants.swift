@@ -16,6 +16,8 @@ struct Constants {
     
     struct  Segues {
         static let toHome = "toHome"
+        static let toSettings = "ShowSettings"
+        static let toNotes = "toNotes"
     }
     
 

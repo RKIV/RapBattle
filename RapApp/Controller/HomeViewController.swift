@@ -93,21 +93,34 @@ class HomeViewController: UIViewController {
         playButton.setTitle("Play", for: .normal)
         playButton.setTitle("Pause", for: .selected)
         
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! SettingsViewController
+        
+        UIApplication.shared.isIdleTimerDisabled = true
+
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        guard let identifier = segue.identifier else {return}
+        
+        switch identifier {
+        case Constants.Segues.toSettings:
+            let destination = segue.destination as! SettingsViewController
+        case "addNote":
+            print("create note bar button item tapped")
+        default:
+            print("unexpected segue identifer")
+        }
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue){
+    @IBAction func unwindWithSegueToHome(_ segue: UIStoryboardSegue){
         
     }
     
@@ -116,8 +129,13 @@ class HomeViewController: UIViewController {
         usedWordsCounter = []
         generateRandomWord()
         
+//        appDelegate.orientationLock = .portraitUpsideDown
+//        let value = UIInterfaceOrientationMask.portraitUpsideDown
+//        UIDevice.current.setValue(value, forKey: "orientation")
         
+//        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portraitUpsideDown, andRotateTo: UIInterfaceOrientation.portraitUpsideDown)
     }
+    
     
     func generateRandomWord(){
         
@@ -193,8 +211,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-    
-    
     @IBAction func playButton(_ sender: Any) {
         
         
@@ -216,8 +232,7 @@ class HomeViewController: UIViewController {
         let fontSize = 40 * (1 + (tracker?.amplitude)!)
         randomWord.font = UIFont(name: randomWord.font.fontName, size: CGFloat(fontSize))
     }
-    
-    
+
     func assignSound(fileName: String){
         
         trackerTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.trackerUpdate), userInfo: nil, repeats: true)
@@ -272,6 +287,8 @@ extension HomeViewController: ScrubberBarDelegate{
     
     
 }
+
+
 
 
 

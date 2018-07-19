@@ -41,7 +41,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="musicLabel" destination="mtP-Zd-LJy" id="djE-wL-DYm"/>
-                                            <segue destination="6ci-Xf-fnU" kind="unwind" unwindAction="unwindWithSegue:" id="gV2-ro-P0Z"/>
+                                            <segue destination="6ci-Xf-fnU" kind="unwind" unwindAction="unwindWithSegueToHome:" id="s8n-Cq-iMD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
