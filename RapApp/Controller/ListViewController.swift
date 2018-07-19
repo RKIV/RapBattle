@@ -31,12 +31,29 @@ class ListViewController: UIViewController{
         rapNotes = CoreDataHelper.retrieveRapNotes()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let identifier = segue.identifier else {return}
+        
+        switch identifier {
+        case "displayNote":
+            guard let indexPath = rapListTableView.indexPathForSelectedRow else {return}
+            let rapNote = rapNotes[indexPath.row]
+            let destination = segue.destination as! EditRapViewController
+            destination.rapNote = rapNote
+        case "addNote":
+            print("create note bar button item tapped")
+        default:
+            print("unexpected segue identifer")
+        }
+    }
+
 }
 
 extension ListViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return rapNotes.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

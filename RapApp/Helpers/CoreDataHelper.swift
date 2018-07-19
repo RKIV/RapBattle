@@ -23,7 +23,7 @@ struct CoreDataHelper {
     }()
     
     static func newRapNote() -> RapNote {
-        let rapNote = NSEntityDescription.insertNewObject(forEntityName: "rapNote", into: context) as! RapNote
+        let rapNote = NSEntityDescription.insertNewObject(forEntityName: Constants.CoreData.entityNameRapNote, into: context) as! RapNote
         
         return rapNote
     }
@@ -44,7 +44,7 @@ struct CoreDataHelper {
     
     static func retrieveRapNotes() -> [RapNote] {
         do {
-            let fetchRequest = NSFetchRequest<RapNote>(entityName: "rapNote")
+            let fetchRequest = NSFetchRequest<RapNote>(entityName: Constants.CoreData.entityNameRapNote)
             let results = try context.fetch(fetchRequest)
             
             return results

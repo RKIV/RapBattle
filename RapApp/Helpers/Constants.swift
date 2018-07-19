@@ -20,5 +20,11 @@ struct Constants {
         static let toNotes = "toNotes"
     }
     
+    struct CoreData {
+        
+        static let entityNameRapNote = "RapNote"
+        
+    }
+    
 
 }

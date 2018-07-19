@@ -41,6 +41,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="rapNameLabel" destination="rte-t5-oXS" id="1qd-Al-f0n"/>
+                                            <segue destination="0Xk-ce-iqQ" kind="show" identifier="displayNote" id="FYY-61-Yd3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -53,14 +54,14 @@
                         <viewLayoutGuide key="safeArea" id="j7C-2i-Qll"/>
                     </view>
                     <navigationItem key="navigationItem" id="vGD-n5-5Hc">
-                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="RNn-bO-7ST">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="RNn-bO-7ST">
                             <connections>
-                                <segue destination="2ag-vR-94Z" kind="unwind" unwindAction="unwindWithSegueToHome:" id="5Eb-GM-ell"/>
+                                <segue destination="2ag-vR-94Z" kind="unwind" unwindAction="unwindWithSegueToHome:" id="8sm-PT-gKJ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="acw-9z-l98">
                             <connections>
-                                <segue destination="0Xk-ce-iqQ" kind="show" id="vue-aW-6Yw"/>
+                                <segue destination="0Xk-ce-iqQ" kind="show" identifier="addNote" id="vue-aW-6Yw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -73,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="1356" y="139.880059970015"/>
         </scene>
-        <!--Title-->
+        <!--Edit Rap-->
         <scene sceneID="ATG-Wc-pUg">
             <objects>
                 <viewController id="0Xk-ce-iqQ" customClass="EditRapViewController" customModule="RapApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,28 +108,27 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="I51-DR-H4m"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="Zae-cr-mhb">
+                    <navigationItem key="navigationItem" title="Edit Rap" id="Zae-cr-mhb">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4p0-At-pQL">
                             <connections>
-                                <segue destination="uba-rM-FPA" kind="unwind" unwindAction="unwindWithSegueToList:" id="ELV-RJ-glb"/>
+                                <segue destination="uba-rM-FPA" kind="unwind" identifier="cancel" unwindAction="unwindWithSegueToList:" id="tsB-y7-P9e"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="dcL-r5-wwo">
                             <connections>
-                                <segue destination="uba-rM-FPA" kind="unwind" unwindAction="unwindWithSegueToList:" id="6P6-bV-JK0"/>
+                                <segue destination="uba-rM-FPA" kind="unwind" identifier="save" unwindAction="unwindWithSegueToList:" id="Kj8-XQ-tsk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="editRapTextField" destination="Xqz-GP-sAD" id="0A7-sb-Ck3"/>
                         <outlet property="editRapTextView" destination="HdA-CH-9aa" id="1Jt-HF-weJ"/>
-                        <outlet property="saveButton" destination="dcL-r5-wwo" id="Qev-DX-VIu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="thQ-yJ-P0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="uba-rM-FPA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2025" y="140"/>
+            <point key="canvasLocation" x="2476" y="140"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WCa-3E-HSm">
@@ -149,4 +149,7 @@
             <point key="canvasLocation" x="416.80000000000001" y="140.77961019490255"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vue-aW-6Yw"/>
+    </inferredMetricsTieBreakers>
 </document>

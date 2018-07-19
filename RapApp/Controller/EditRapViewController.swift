@@ -12,7 +12,6 @@ class EditRapViewController: UIViewController {
     
     @IBOutlet weak var editRapTextField: UITextField!
     @IBOutlet weak var editRapTextView: UITextView!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var rapNote: RapNote?
     
@@ -37,20 +36,18 @@ class EditRapViewController: UIViewController {
         guard let identifier = segue.identifier else { return }
         
         switch identifier {
-        case "save" where note != nil:
-            note?.title = titleTextField.text ?? ""
-            note?.content = contentTextView.text ?? ""
-            note?.modificationTime = Date()
+        case "save" where rapNote != nil:
+            rapNote?.title = editRapTextField.text ?? ""
+            rapNote?.content = editRapTextView.text ?? ""
             
-            CoreDataHelper.saveNote()
+            CoreDataHelper.saveRapNote()
             
-        case "save" where note == nil:
-            let note = CoreDataHelper.newNote()
-            note.title = titleTextField.text ?? ""
-            note.content = contentTextView.text ?? ""
-            note.modificationTime = Date()
+        case "save" where rapNote == nil:
+            let rapNote = CoreDataHelper.newRapNote()
+            rapNote.title = editRapTextField.text ?? ""
+            rapNote.content = editRapTextView.text ?? ""
             
-            CoreDataHelper.saveNote()
+            CoreDataHelper.saveRapNote()
             
         case "cancel":
             print("cancel bar button item tapped")
