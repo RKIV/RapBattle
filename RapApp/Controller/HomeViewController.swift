@@ -138,7 +138,6 @@ class HomeViewController: UIViewController {
 //        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portraitUpsideDown, andRotateTo: UIInterfaceOrientation.portraitUpsideDown)
     }
     
-    
 
 
     func generateRandomWords(){
