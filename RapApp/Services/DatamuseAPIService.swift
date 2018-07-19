@@ -40,9 +40,6 @@ struct DatamuseAPIService{
                     wordsData.remove(at: element - index)
                 }
                 wordsData = wordsData.sorted(by: { $0.frequency! > $1.frequency! })
-                for word in wordsData{
-                    print(word.tags[0], word.tags[word.tags.count - 1])
-                }
                 done(wordsData)
                 //Get back to the main queue
                 
