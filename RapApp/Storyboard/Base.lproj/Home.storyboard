@@ -36,7 +36,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
                                 <size key="titleShadowOffset" width="2" height="1"/>
-                                <state key="normal" title="Generate Word">
+                                <state key="normal" title="Generate Rhymes">
                                     <color key="titleColor" red="0.25490196078431371" green="0.396078431372549" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -84,15 +84,6 @@
                                 </state>
                                 <connections>
                                     <segue destination="wbi-bm-gxD" kind="show" identifier="ShowSettings" id="9wm-zg-NZv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpY-a5-MOQ">
-                                <rect key="frame" x="30" y="20" width="37" height="30"/>
-                                <state key="normal" title="Write">
-                                    <color key="titleColor" red="0.74337702603143418" green="0.16043440599869535" blue="0.7330841167168185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="8Fi-M2-uaT" kind="show" identifier="toNotes" id="pJY-6S-nH0"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BvD-bC-H1s">
@@ -211,6 +202,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x7P-iz-qHg">
+                                <rect key="frame" x="340" y="28" width="51" height="31"/>
+                                <connections>
+                                    <action selector="rapModeToggled:" destination="BYZ-38-t0r" eventType="valueChanged" id="ugO-m4-N67"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Mode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bpu-kv-mbK">
+                                <rect key="frame" x="234" y="33" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -218,17 +222,18 @@
                             <constraint firstItem="N05-wZ-VgD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6As-3A-udg"/>
                             <constraint firstItem="rsO-rO-d47" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BEG-YH-Equ"/>
                             <constraint firstItem="YqF-yJ-aNk" firstAttribute="top" secondItem="EA1-gu-ywy" secondAttribute="bottom" constant="47" id="C4R-eA-WF4"/>
-                            <constraint firstItem="lpY-a5-MOQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CLc-4F-iNy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oFh-rK-Rzp" secondAttribute="bottom" constant="7" id="En6-kc-Mzr"/>
+                            <constraint firstItem="x7P-iz-qHg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="FdE-Tv-nOv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DOh-iM-9sw" secondAttribute="bottom" constant="195" id="HVL-qf-qF0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YqF-yJ-aNk" secondAttribute="trailing" constant="10" id="J0D-vS-Xa9"/>
                             <constraint firstItem="oFh-rK-Rzp" firstAttribute="top" secondItem="rsO-rO-d47" secondAttribute="bottom" constant="10" id="J3L-zU-0mb"/>
+                            <constraint firstItem="aL4-r9-fJY" firstAttribute="top" secondItem="x7P-iz-qHg" secondAttribute="bottom" constant="1" id="KV2-56-MZl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rsO-rO-d47" secondAttribute="trailing" id="QQT-JR-H9v"/>
                             <constraint firstItem="N05-wZ-VgD" firstAttribute="top" secondItem="TI2-lC-4KR" secondAttribute="bottom" constant="43" id="QWG-ut-Zw5"/>
                             <constraint firstItem="oFh-rK-Rzp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rf4-mp-Mph"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="x7P-iz-qHg" secondAttribute="trailing" constant="25" id="TS6-Gb-k8W"/>
                             <constraint firstAttribute="trailing" secondItem="TI2-lC-4KR" secondAttribute="trailing" id="a8b-Jg-auh"/>
                             <constraint firstItem="EA1-gu-ywy" firstAttribute="top" secondItem="DOh-iM-9sw" secondAttribute="bottom" constant="25" id="bbA-H9-9Y6"/>
-                            <constraint firstItem="lpY-a5-MOQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="bd4-OE-vDL"/>
                             <constraint firstItem="BvD-bC-H1s" firstAttribute="top" secondItem="aL4-r9-fJY" secondAttribute="bottom" constant="80" id="beh-6I-2pK"/>
                             <constraint firstItem="N05-wZ-VgD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="g2N-14-huR"/>
                             <constraint firstItem="BvD-bC-H1s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="g69-Q8-zy1"/>
@@ -252,6 +257,8 @@
                         <outlet property="progressBar" destination="TI2-lC-4KR" id="Zaw-mX-qO5"/>
                         <outlet property="randomButton" destination="DOh-iM-9sw" id="Zvv-eB-Wi3"/>
                         <outlet property="randomWord" destination="aL4-r9-fJY" id="66d-9o-LTK"/>
+                        <outlet property="rapEditorTextView" destination="N05-wZ-VgD" id="EEK-PW-aIA"/>
+                        <outlet property="rapModeSwitch" destination="x7P-iz-qHg" id="c8R-O0-ujz"/>
                         <outlet property="rhymeEight" destination="r09-cC-Uti" id="D80-di-Q5E"/>
                         <outlet property="rhymeFive" destination="DmC-oX-EBR" id="g4h-b5-4RR"/>
                         <outlet property="rhymeFour" destination="pFf-wT-Y2N" id="SET-qg-mDe"/>
@@ -262,6 +269,7 @@
                         <outlet property="rhymeThree" destination="McW-4C-kyC" id="o2S-6I-31R"/>
                         <outlet property="rhymeTwo" destination="HNX-eP-uGd" id="VPB-9a-n2f"/>
                         <outlet property="scrubberBar" destination="rsO-rO-d47" id="Sa8-aa-XRn"/>
+                        <segue destination="8Fi-M2-uaT" kind="show" identifier="notesList" id="8NL-Or-G90"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -283,19 +291,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V04-aO-MgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="417" y="141"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="NYJ-JX-Pqc">
-            <objects>
-                <viewController id="1nN-34-aNI" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4tM-wq-5Vl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="D1t-xY-1aP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
 </document>

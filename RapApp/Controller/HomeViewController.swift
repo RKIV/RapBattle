@@ -47,6 +47,10 @@ class HomeViewController: UIViewController {
     var indexProgressBar = 2000
     var poseDuration = 2000
     
+    @IBOutlet weak var rapModeSwitch: UISwitch!
+    @IBOutlet weak var rapEditorTextView: UITextView!
+    
+    
     @IBOutlet weak var musicBar: ScrubberBar!
     @IBOutlet weak var playButton: UIButton!
     var playState = 0
@@ -78,6 +82,8 @@ class HomeViewController: UIViewController {
         
         randomButton.layer.cornerRadius = 6
         
+        rapModeSwitch.setOn(false, animated: false)
+        
         progressBar.barHeight = self.view.frame.height*0.05
         
         musicBar.barColor = UIColor(red:0.31, green:0.31, blue:0.31, alpha:1.0)
@@ -97,7 +103,6 @@ class HomeViewController: UIViewController {
         
         
         UIApplication.shared.isIdleTimerDisabled = true
-
         
     }
     
@@ -128,18 +133,23 @@ class HomeViewController: UIViewController {
     
     //MARK: Generate Random Button Function
     @IBAction func randomButtonTapped(_ sender: Any) {
-        usedWordsCounter = []
-        generateRandomWords()
         
-//        appDelegate.orientationLock = .portraitUpsideDown
-//        let value = UIInterfaceOrientationMask.portraitUpsideDown
-//        UIDevice.current.setValue(value, forKey: "orientation")
         
-//        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portraitUpsideDown, andRotateTo: UIInterfaceOrientation.portraitUpsideDown)
+        //        appDelegate.orientationLock = .portraitUpsideDown
+        //        let value = UIInterfaceOrientationMask.portraitUpsideDown
+        //        UIDevice.current.setValue(value, forKey: "orientation")
+        
+        //        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portraitUpsideDown, andRotateTo: UIInterfaceOrientation.portraitUpsideDown)
+        
+        
+        if rapModeSwitch.isOn {
+            performSegue(withIdentifier: "notesList", sender: nil)
+        } else {
+            usedWordsCounter = []
+            generateRandomWords()
+        }
     }
     
-
-
     func generateRandomWords(){
         
         // display the first pose
@@ -160,7 +170,7 @@ class HomeViewController: UIViewController {
                     element.adjustsFontSizeToFitWidth = true
                     if let index = index{
                         element.text = words[index].word
-//                        print(words[index].frequency)
+                        //                        print(words[index].frequency)
                         element.text = element.text?.capitalizingFirstLetter()
                         usedIndeces.append(index)
                     } else{
@@ -253,7 +263,7 @@ class HomeViewController: UIViewController {
         let fontSize = 40 * (1 + (tracker?.amplitude)!)
         randomWord.font = UIFont(name: randomWord.font.fontName, size: CGFloat(fontSize))
     }
-
+    
     func assignSound(fileName: String){
         
         trackerTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.trackerUpdate), userInfo: nil, repeats: true)
@@ -291,6 +301,17 @@ class HomeViewController: UIViewController {
         
     }
     
+    //Rap Mode
+    
+    @IBAction func rapModeToggled(_ sender: Any) {
+        
+        if rapModeSwitch.isOn{
+            randomButton.setTitle("My Raps", for: .normal)
+        } else {
+            randomButton.setTitle("Generate Rhymes", for: .normal)
+        }
+        
+    }
     
     
 }
