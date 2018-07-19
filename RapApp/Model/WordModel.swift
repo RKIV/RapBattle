@@ -12,4 +12,6 @@ struct Word: Codable {
     var word: String
     var score: Int?
     var numSyllables: Int
+    var tags: [String]
+    var frequency: Double?
 }
