@@ -103,6 +103,7 @@ class HomeViewController: UIViewController {
         
         
         UIApplication.shared.isIdleTimerDisabled = true
+        rapEditorTextView.isUserInteractionEnabled = false
         
     }
     
@@ -143,10 +144,13 @@ class HomeViewController: UIViewController {
         
         
         if rapModeSwitch.isOn {
+            
             performSegue(withIdentifier: "notesList", sender: nil)
+            
         } else {
-            usedWordsCounter = []
+            
             generateRandomWords()
+            
         }
     }
     
@@ -307,8 +311,17 @@ class HomeViewController: UIViewController {
         
         if rapModeSwitch.isOn{
             randomButton.setTitle("My Raps", for: .normal)
+            rapEditorTextView.isUserInteractionEnabled = true
+            for x in rhymeWordsArray {
+                x.isHidden = true
+            }
         } else {
             randomButton.setTitle("Generate Rhymes", for: .normal)
+            rapEditorTextView.isUserInteractionEnabled = false
+            usedWordsCounter = []
+            for x in rhymeWordsArray {
+                x.isHidden = false
+            }
         }
         
     }
