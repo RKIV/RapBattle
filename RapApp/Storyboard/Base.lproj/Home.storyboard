@@ -230,7 +230,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="My Rap" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Bf-Bf-QmY">
-                                <rect key="frame" x="20" y="71" width="374" height="30"/>
+                                <rect key="frame" x="20" y="64" width="374" height="46"/>
                                 <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.76470588235294112" green="0.027450980392156862" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="40"/>
@@ -242,9 +242,9 @@
                             <constraint firstItem="EA1-gu-ywy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3aZ-SM-HAD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I1o-By-lXj" secondAttribute="trailing" constant="35" id="3l3-NB-S7D"/>
                             <constraint firstItem="I1o-By-lXj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="4bF-so-FAz"/>
-                            <constraint firstItem="TI2-lC-4KR" firstAttribute="top" secondItem="5Bf-Bf-QmY" secondAttribute="bottom" constant="44" id="5ee-hG-Gk4"/>
+                            <constraint firstItem="TI2-lC-4KR" firstAttribute="top" secondItem="5Bf-Bf-QmY" secondAttribute="bottom" constant="35" id="5ee-hG-Gk4"/>
                             <constraint firstItem="N05-wZ-VgD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6As-3A-udg"/>
-                            <constraint firstItem="5Bf-Bf-QmY" firstAttribute="top" secondItem="x7P-iz-qHg" secondAttribute="bottom" constant="12" id="7BP-5H-Ts4"/>
+                            <constraint firstItem="5Bf-Bf-QmY" firstAttribute="top" secondItem="x7P-iz-qHg" secondAttribute="bottom" constant="5" id="7BP-5H-Ts4"/>
                             <constraint firstItem="aL4-r9-fJY" firstAttribute="top" secondItem="Bpu-kv-mbK" secondAttribute="bottom" constant="6" id="7C7-l6-Bfl"/>
                             <constraint firstItem="I1o-By-lXj" firstAttribute="top" secondItem="TI2-lC-4KR" secondAttribute="bottom" constant="43" id="7Mw-0b-5PV"/>
                             <constraint firstItem="rsO-rO-d47" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BEG-YH-Equ"/>

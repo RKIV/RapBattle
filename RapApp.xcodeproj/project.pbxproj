@@ -12,6 +12,7 @@
 		1E089C10210110A800589C43 /* RapNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E089C0F210110A800589C43 /* RapNoteCell.swift */; };
 		1E089C12210120D900589C43 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E089C11210120D900589C43 /* CoreDataHelper.swift */; };
 		1E089C1721028B0200589C43 /* Origram.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E089C1621028B0200589C43 /* Origram.otf */; };
+		1E089C192102945100589C43 /* UITextView+currentWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E089C182102945100589C43 /* UITextView+currentWord.swift */; };
 		1E13A06820FD0A93001763B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E13A06720FD0A93001763B2 /* AppDelegate.swift */; };
 		1E13A06A20FD0A93001763B2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E13A06920FD0A93001763B2 /* HomeViewController.swift */; };
 		1E13A06D20FD0A93001763B2 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E13A06B20FD0A93001763B2 /* Home.storyboard */; };
@@ -50,6 +51,7 @@
 		1E089C0F210110A800589C43 /* RapNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapNoteCell.swift; sourceTree = "<group>"; };
 		1E089C11210120D900589C43 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		1E089C1621028B0200589C43 /* Origram.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Origram.otf; sourceTree = "<group>"; };
+		1E089C182102945100589C43 /* UITextView+currentWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+currentWord.swift"; sourceTree = "<group>"; };
 		1E13A06420FD0A93001763B2 /* RapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E13A06720FD0A93001763B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E13A06920FD0A93001763B2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				1E73C8D320FE61A800D227EF /* ProgressView.swift */,
 				1E73C8D520FE637400D227EF /* UIColor.swift */,
 				FADFF73D20FF299600D92AD2 /* String+ContainsWhiteSpace.swift */,
+				1E089C182102945100589C43 /* UITextView+currentWord.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				1E089C10210110A800589C43 /* RapNoteCell.swift in Sources */,
 				FADFF73E20FF299600D92AD2 /* String+ContainsWhiteSpace.swift in Sources */,
 				1E387DF420FFC63400A81193 /* MusicSelection.swift in Sources */,
+				1E089C192102945100589C43 /* UITextView+currentWord.swift in Sources */,
 				FA7AD17F20FD12E50027940A /* DatamuseAPIService.swift in Sources */,
 				1E13A07020FD0A93001763B2 /* RapApp.xcdatamodeld in Sources */,
 				1E73C8D220FE619D00D227EF /* AVAudio.swift in Sources */,

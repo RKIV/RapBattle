@@ -270,7 +270,9 @@ class HomeViewController: UIViewController {
             playState = 1
             playButton.isSelected = true
             assignSound(fileName: musicSelected)
-            progressBarTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.setProgressBar), userInfo: nil, repeats: true)
+            if !rapModeSwitch.isOn {
+                progressBarTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.setProgressBar), userInfo: nil, repeats: true)
+            }
         } else {
             playState = 0
             playButton.isSelected = false
