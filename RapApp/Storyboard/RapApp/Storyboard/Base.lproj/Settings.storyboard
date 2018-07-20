@@ -19,31 +19,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0C1-to-6p3">
-                                <rect key="frame" x="16" y="33.5" width="343" height="600"/>
+                                <rect key="frame" x="16" y="33" width="343" height="600"/>
                                 <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="600" id="D0Y-Ok-3PU"/>
-                                    <constraint firstAttribute="width" constant="343" id="SwM-ew-Mgb"/>
-                                </constraints>
                                 <color key="separatorColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.58431372549019611" green="0.027450980392156862" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="musicCell" id="b0e-N6-nk2" customClass="MusicSelectionCell" customModule="RapApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="0.0" reuseIdentifier="musicCell" id="b0e-N6-nk2" customClass="MusicSelectionCell" customModule="RapApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b0e-N6-nk2" id="NPx-mv-ygS" customClass="MusicSelectionCell" customModule="RapApp" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Music Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtP-Zd-LJy">
-                                                    <rect key="frame" x="111" y="11" width="121" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Selection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtP-Zd-LJy">
+                                                    <rect key="frame" x="71.5" y="11" width="200" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="fAw-Y7-cUh"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.71764705882352942" green="0.72156862745098038" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.58431372549019611" green="0.027450980392156862" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="mtP-Zd-LJy" firstAttribute="centerX" secondItem="NPx-mv-ygS" secondAttribute="centerX" id="WkN-b8-uHS"/>
+                                                <constraint firstItem="mtP-Zd-LJy" firstAttribute="centerY" secondItem="NPx-mv-ygS" secondAttribute="centerY" id="dBN-tJ-mDB"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.43529411764705883" green="0.13333333333333333" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
@@ -59,8 +61,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="0C1-to-6p3" firstAttribute="leading" secondItem="aKj-Sj-es5" secondAttribute="leading" constant="16" id="CmP-hT-Q53"/>
                             <constraint firstItem="0C1-to-6p3" firstAttribute="centerX" secondItem="UqY-AG-w2m" secondAttribute="centerX" id="K4R-WF-kOn"/>
                             <constraint firstItem="0C1-to-6p3" firstAttribute="centerY" secondItem="UqY-AG-w2m" secondAttribute="centerY" id="Ows-J4-Fxo"/>
+                            <constraint firstItem="0C1-to-6p3" firstAttribute="top" secondItem="aKj-Sj-es5" secondAttribute="top" constant="13.5" id="cXz-by-DVb"/>
+                            <constraint firstItem="aKj-Sj-es5" firstAttribute="bottom" secondItem="0C1-to-6p3" secondAttribute="bottom" constant="33.5" id="md7-qy-tG9"/>
+                            <constraint firstItem="aKj-Sj-es5" firstAttribute="trailing" secondItem="0C1-to-6p3" secondAttribute="trailing" constant="16" id="s46-QP-Kyg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aKj-Sj-es5"/>
                     </view>

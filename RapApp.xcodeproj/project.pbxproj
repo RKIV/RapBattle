@@ -18,12 +18,12 @@
 		1E13A07220FD0A94001763B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E13A07120FD0A94001763B2 /* Assets.xcassets */; };
 		1E13A07520FD0A94001763B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E13A07320FD0A94001763B2 /* LaunchScreen.storyboard */; };
 		1E387DE620FF9EB200A81193 /* MusicSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E387DE520FF9EB200A81193 /* MusicSelectionCell.swift */; };
-		1E387DED20FFB3C800A81193 /* Beat1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DE720FFB3C700A81193 /* Beat1.mp3 */; };
-		1E387DEE20FFB3C800A81193 /* Beat2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DE820FFB3C700A81193 /* Beat2.mp3 */; };
-		1E387DEF20FFB3C800A81193 /* Beat6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DE920FFB3C700A81193 /* Beat6.mp3 */; };
-		1E387DF020FFB3C800A81193 /* Beat4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DEA20FFB3C700A81193 /* Beat4.mp3 */; };
-		1E387DF120FFB3C800A81193 /* Beat3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DEB20FFB3C800A81193 /* Beat3.mp3 */; };
-		1E387DF220FFB3C800A81193 /* Beat5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DEC20FFB3C800A81193 /* Beat5.mp3 */; };
+		1E387DED20FFB3C800A81193 /* ERICK SANCHEZ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DE720FFB3C700A81193 /* ERICK SANCHEZ.mp3 */; };
+		1E387DEE20FFB3C800A81193 /* Falling Sky.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DE820FFB3C700A81193 /* Falling Sky.mp3 */; };
+		1E387DEF20FFB3C800A81193 /* Dream On.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DE920FFB3C700A81193 /* Dream On.mp3 */; };
+		1E387DF020FFB3C800A81193 /* West Coast.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DEA20FFB3C700A81193 /* West Coast.mp3 */; };
+		1E387DF120FFB3C800A81193 /* 25 Mil.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DEB20FFB3C800A81193 /* 25 Mil.mp3 */; };
+		1E387DF220FFB3C800A81193 /* Oldschool.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E387DEC20FFB3C800A81193 /* Oldschool.mp3 */; };
 		1E387DF420FFC63400A81193 /* MusicSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E387DF320FFC63400A81193 /* MusicSelection.swift */; };
 		1E50DA4420FD68B600476801 /* StringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E50DA4320FD68B600476801 /* StringFormatter.swift */; };
 		1E73C8CF20FE5F9F00D227EF /* ScrubberBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E73C8CD20FE5F9F00D227EF /* ScrubberBar.swift */; };
@@ -57,12 +57,12 @@
 		1E13A07420FD0A94001763B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E13A07620FD0A94001763B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E387DE520FF9EB200A81193 /* MusicSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelectionCell.swift; sourceTree = "<group>"; };
-		1E387DE720FFB3C700A81193 /* Beat1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Beat1.mp3; sourceTree = "<group>"; };
-		1E387DE820FFB3C700A81193 /* Beat2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Beat2.mp3; sourceTree = "<group>"; };
-		1E387DE920FFB3C700A81193 /* Beat6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Beat6.mp3; sourceTree = "<group>"; };
-		1E387DEA20FFB3C700A81193 /* Beat4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Beat4.mp3; sourceTree = "<group>"; };
-		1E387DEB20FFB3C800A81193 /* Beat3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Beat3.mp3; sourceTree = "<group>"; };
-		1E387DEC20FFB3C800A81193 /* Beat5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Beat5.mp3; sourceTree = "<group>"; };
+		1E387DE720FFB3C700A81193 /* ERICK SANCHEZ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ERICK SANCHEZ.mp3"; sourceTree = "<group>"; };
+		1E387DE820FFB3C700A81193 /* Falling Sky.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Falling Sky.mp3"; sourceTree = "<group>"; };
+		1E387DE920FFB3C700A81193 /* Dream On.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Dream On.mp3"; sourceTree = "<group>"; };
+		1E387DEA20FFB3C700A81193 /* West Coast.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "West Coast.mp3"; sourceTree = "<group>"; };
+		1E387DEB20FFB3C800A81193 /* 25 Mil.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "25 Mil.mp3"; sourceTree = "<group>"; };
+		1E387DEC20FFB3C800A81193 /* Oldschool.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Oldschool.mp3; sourceTree = "<group>"; };
 		1E387DF320FFC63400A81193 /* MusicSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelection.swift; sourceTree = "<group>"; };
 		1E50DA4320FD68B600476801 /* StringFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormatter.swift; sourceTree = "<group>"; };
 		1E73C8CC20FE5F9F00D227EF /* ScrubberBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrubberBar.h; sourceTree = "<group>"; };
@@ -233,12 +233,12 @@
 		FA6D707C20FED285001A6C6E /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				1E387DE720FFB3C700A81193 /* Beat1.mp3 */,
-				1E387DE820FFB3C700A81193 /* Beat2.mp3 */,
-				1E387DEB20FFB3C800A81193 /* Beat3.mp3 */,
-				1E387DEA20FFB3C700A81193 /* Beat4.mp3 */,
-				1E387DEC20FFB3C800A81193 /* Beat5.mp3 */,
-				1E387DE920FFB3C700A81193 /* Beat6.mp3 */,
+				1E387DE720FFB3C700A81193 /* ERICK SANCHEZ.mp3 */,
+				1E387DE820FFB3C700A81193 /* Falling Sky.mp3 */,
+				1E387DEB20FFB3C800A81193 /* 25 Mil.mp3 */,
+				1E387DEA20FFB3C700A81193 /* West Coast.mp3 */,
+				1E387DEC20FFB3C800A81193 /* Oldschool.mp3 */,
+				1E387DE920FFB3C700A81193 /* Dream On.mp3 */,
 			);
 			name = Music;
 			path = "New Group";
@@ -305,15 +305,15 @@
 			files = (
 				1E089C0A2101085C00589C43 /* Notes.storyboard in Resources */,
 				1E73C8D020FE5F9F00D227EF /* Info.plist in Resources */,
-				1E387DEF20FFB3C800A81193 /* Beat6.mp3 in Resources */,
+				1E387DEF20FFB3C800A81193 /* Dream On.mp3 in Resources */,
 				1E13A07520FD0A94001763B2 /* LaunchScreen.storyboard in Resources */,
-				1E387DEE20FFB3C800A81193 /* Beat2.mp3 in Resources */,
-				1E387DF120FFB3C800A81193 /* Beat3.mp3 in Resources */,
+				1E387DEE20FFB3C800A81193 /* Falling Sky.mp3 in Resources */,
+				1E387DF120FFB3C800A81193 /* 25 Mil.mp3 in Resources */,
 				1E13A07220FD0A94001763B2 /* Assets.xcassets in Resources */,
-				1E387DF220FFB3C800A81193 /* Beat5.mp3 in Resources */,
+				1E387DF220FFB3C800A81193 /* Oldschool.mp3 in Resources */,
 				1E13A06D20FD0A93001763B2 /* Home.storyboard in Resources */,
-				1E387DED20FFB3C800A81193 /* Beat1.mp3 in Resources */,
-				1E387DF020FFB3C800A81193 /* Beat4.mp3 in Resources */,
+				1E387DED20FFB3C800A81193 /* ERICK SANCHEZ.mp3 in Resources */,
+				1E387DF020FFB3C800A81193 /* West Coast.mp3 in Resources */,
 				1E73C8DD20FE90BE00D227EF /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

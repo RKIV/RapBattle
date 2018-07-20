@@ -56,7 +56,7 @@ class HomeViewController: UIViewController {
     var playState = 0
     
     var isStarted = false
-    var musicSelected = UserDefaults.standard.string(forKey: "currentMusic") ?? "Beat1.mp3"
+    var musicSelected = UserDefaults.standard.string(forKey: "currentMusic") ?? "ERICK SANCHEZ.mp3"
     
     @IBOutlet  weak var scrubberBar: ScrubberBar!
     
@@ -66,6 +66,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var rapNameTextField: UITextField!
     
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     // MARK: Override Functions
     
@@ -98,7 +99,7 @@ class HomeViewController: UIViewController {
         
         musicBar.addTouchHandlers()
         
-        musicNameButton.setTitle(musicSelected, for: .normal)
+        musicNameButton.setTitle(String(musicSelected.split(separator: ".")[0]), for: .normal)
         
         musicBar.delegate = self
         
@@ -121,6 +122,13 @@ class HomeViewController: UIViewController {
         randomWord.isHidden = false
         rapNameTextField.isHidden = true
         
+        rapNameTextField.attributedPlaceholder = NSAttributedString(string: "My Rap",
+                                                                    attributes: [NSAttributedStringKey.foregroundColor: UIColor.init(red: 135, green: 7, blue: 63)])
+        
+        descriptionLabel.text = "Dem Rhymes Boiii"
+        
+        rapEditorTextView.delegate = self
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -135,6 +143,7 @@ class HomeViewController: UIViewController {
     //MARK: Generate Random Button Function
     @IBAction func randomButtonTapped(_ sender: Any) {
         
+        descriptionLabel.text = ""
         
         //        appDelegate.orientationLock = .portraitUpsideDown
         //        let value = UIInterfaceOrientationMask.portraitUpsideDown
@@ -269,6 +278,7 @@ class HomeViewController: UIViewController {
     @objc func trackerUpdate(){
         let fontSize = 40 * (1 + (tracker?.amplitude)!)
         randomWord.font = UIFont(name: randomWord.font.fontName, size: CGFloat(fontSize))
+        rapNameTextField.font = UIFont(name: randomWord.font.fontName, size: CGFloat(fontSize))
     }
     
     func assignSound(fileName: String){
@@ -312,7 +322,10 @@ class HomeViewController: UIViewController {
     
     @IBAction func rapModeToggled(_ sender: Any) {
         
+        descriptionLabel.text = ""
+        
         if rapModeSwitch.isOn{
+            descriptionLabel.text = "Write your rap here..."
             randomButton.setTitle("My Raps", for: .normal)
             rapEditorTextView.isUserInteractionEnabled = true
             randomWord.isHidden = true
@@ -334,6 +347,9 @@ class HomeViewController: UIViewController {
         }
         
     }
+    
+    
+
     
     func saveNotes(){
         
@@ -389,7 +405,13 @@ extension HomeViewController: ScrubberBarDelegate{
     
 }
 
-
+extension HomeViewController: UITextViewDelegate{
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        descriptionLabel.text = ""
+    }
+    
+}
 
 
 

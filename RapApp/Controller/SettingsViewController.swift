@@ -19,7 +19,7 @@ class SettingsViewController: UIViewController{
     
     var store: String?
     
-    var musicArray = ["Beat1.mp3","Beat2.mp3","Beat3.mp3", "Beat4.mp3", "Beat5.mp3", "Beat6.mp3",]
+    var musicArray = ["ERICK SANCHEZ.mp3","Falling Sky.mp3","25 Mil.mp3", "West Coast.mp3", "Oldschool.mp3", "Dream On.mp3",]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class SettingsViewController: UIViewController{
             destination.player?.stop()
             destination.isStarted = false
             destination.musicSelected = musicArray[index!]
-            destination.musicNameButton.setTitle(destination.musicSelected, for: .normal)
+            destination.musicNameButton.setTitle(String(destination.musicSelected.split(separator: ".")[0]), for: .normal)
         }
         destination.assignSound(fileName: destination.musicSelected)
         
@@ -67,7 +67,8 @@ extension SettingsViewController: UITableViewDataSource{
     
     func configureCell(cell: MusicSelectionCell, forIndexPath indexPath: IndexPath){
         
-        cell.musicLabel.text = musicArray[indexPath.row]
+        cell.musicLabel.text = String(musicArray[indexPath.row].split(separator: ".")[0])
+        
     }
     
 }
