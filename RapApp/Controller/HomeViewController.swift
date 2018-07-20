@@ -64,6 +64,9 @@ class HomeViewController: UIViewController {
     
     var rapNote: RapNote?
     
+    @IBOutlet weak var rapNameTextField: UITextField!
+    
+    
     // MARK: Override Functions
     
     override func viewDidLoad() {
@@ -115,35 +118,10 @@ class HomeViewController: UIViewController {
         
         self.view.addGestureRecognizer(tap)
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        randomWord.isHidden = false
+        rapNameTextField.isHidden = true
         
-        if let rapNote = rapNote {
-            randomWord.text = rapNote.title
-            rapEditorTextView.text = rapNote.content
-        } else {
-            randomWord.text = "Title"
-            rapEditorTextView.text = ""
-        }
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//
-//        guard let identifier = segue.identifier else {return}
-//
-//        switch identifier {
-//        case Constants.Segues.toSettings:
-//            let destination = segue.destination as! SettingsViewController
-//        case "addNote":
-//            print("create note bar button item tapped")
-//        default:
-//            print("unexpected segue identifer")
-//        }
-//
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -337,6 +315,8 @@ class HomeViewController: UIViewController {
         if rapModeSwitch.isOn{
             randomButton.setTitle("My Raps", for: .normal)
             rapEditorTextView.isUserInteractionEnabled = true
+            randomWord.isHidden = true
+            rapNameTextField.isHidden = false
             for x in rhymeWordsArray {
                 x.text = ""
             }
@@ -344,9 +324,13 @@ class HomeViewController: UIViewController {
             randomButton.setTitle("Generate Rhymes", for: .normal)
             rapEditorTextView.isUserInteractionEnabled = false
             usedWordsCounter = []
+            randomWord.isHidden = false
+            rapNameTextField.isHidden = true
             if rapEditorTextView.text != nil && rapEditorTextView.text != ""{
                 saveNotes()}
+            rapNameTextField.text = ""
             rapEditorTextView.text = ""
+            generateRandomWords()
         }
         
     }
@@ -355,14 +339,23 @@ class HomeViewController: UIViewController {
         
         if rapNote != nil {
             
-            rapNote?.title = rapEditorTextView.text ?? ""
+            if rapNameTextField.text != ""{
+                rapNote?.title = rapNameTextField.text ?? "My Rap"
+            } else {
+                rapNote?.title = "My Rap"
+            }
+            
             rapNote?.content = rapEditorTextView.text ?? ""
             
             CoreDataHelper.saveRapNote()
         } else {
             
             let rapNote = CoreDataHelper.newRapNote()
-            rapNote.title = rapEditorTextView.text ?? ""
+            if rapNameTextField.text != ""{
+                rapNote.title = rapNameTextField.text ?? "My Rap"
+            } else {
+                rapNote.title = "My Rap"
+            }
             rapNote.content = rapEditorTextView.text ?? ""
             
             CoreDataHelper.saveRapNote()

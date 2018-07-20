@@ -42,10 +42,14 @@ class ListViewController: UIViewController{
             let rapNote = rapNotes[indexPath.row]
             let destination = segue.destination as! HomeViewController
             destination.rapNote = rapNote
+            destination.rapNameTextField.text = rapNote.title
+            destination.rapEditorTextView.text = rapNote.content
         case "addNote":
             print("create note bar button item tapped")
             let destination = segue.destination as! HomeViewController
             destination.rapNote = nil
+            destination.rapEditorTextView.text = ""
+            destination.rapNameTextField.text = ""
             
         default:
             print("unexpected segue identifer")

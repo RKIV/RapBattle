@@ -212,11 +212,19 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Bf-Bf-QmY">
+                                <rect key="frame" x="60" y="71" width="294" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="EA1-gu-ywy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3aZ-SM-HAD"/>
+                            <constraint firstItem="TI2-lC-4KR" firstAttribute="top" secondItem="5Bf-Bf-QmY" secondAttribute="bottom" constant="44" id="5ee-hG-Gk4"/>
                             <constraint firstItem="N05-wZ-VgD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6As-3A-udg"/>
+                            <constraint firstItem="5Bf-Bf-QmY" firstAttribute="top" secondItem="x7P-iz-qHg" secondAttribute="bottom" constant="12" id="7BP-5H-Ts4"/>
                             <constraint firstItem="rsO-rO-d47" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BEG-YH-Equ"/>
                             <constraint firstItem="YqF-yJ-aNk" firstAttribute="top" secondItem="EA1-gu-ywy" secondAttribute="bottom" constant="47" id="C4R-eA-WF4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oFh-rK-Rzp" secondAttribute="bottom" constant="7" id="En6-kc-Mzr"/>
@@ -233,6 +241,7 @@
                             <constraint firstAttribute="trailing" secondItem="TI2-lC-4KR" secondAttribute="trailing" id="a8b-Jg-auh"/>
                             <constraint firstItem="EA1-gu-ywy" firstAttribute="top" secondItem="DOh-iM-9sw" secondAttribute="bottom" constant="25" id="bbA-H9-9Y6"/>
                             <constraint firstItem="BvD-bC-H1s" firstAttribute="top" secondItem="aL4-r9-fJY" secondAttribute="bottom" constant="80" id="beh-6I-2pK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Bf-Bf-QmY" secondAttribute="trailing" constant="60" id="c6Z-td-ogD"/>
                             <constraint firstItem="N05-wZ-VgD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="g2N-14-huR"/>
                             <constraint firstItem="BvD-bC-H1s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="g69-Q8-zy1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BvD-bC-H1s" secondAttribute="trailing" constant="35" id="gsM-b2-wji"/>
@@ -243,6 +252,7 @@
                             <constraint firstItem="aL4-r9-fJY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="q6D-EW-P1n"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oFh-rK-Rzp" secondAttribute="trailing" id="uV9-O4-JZS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="N05-wZ-VgD" secondAttribute="trailing" constant="35" id="uYY-cE-OwR"/>
+                            <constraint firstItem="5Bf-Bf-QmY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="uZc-ox-bMF"/>
                             <constraint firstItem="TI2-lC-4KR" firstAttribute="top" secondItem="aL4-r9-fJY" secondAttribute="bottom" constant="35" id="vwJ-Fz-rrd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -257,6 +267,7 @@
                         <outlet property="randomWord" destination="aL4-r9-fJY" id="66d-9o-LTK"/>
                         <outlet property="rapEditorTextView" destination="N05-wZ-VgD" id="EEK-PW-aIA"/>
                         <outlet property="rapModeSwitch" destination="x7P-iz-qHg" id="c8R-O0-ujz"/>
+                        <outlet property="rapNameTextField" destination="5Bf-Bf-QmY" id="ciT-bF-8Im"/>
                         <outlet property="rhymeEight" destination="r09-cC-Uti" id="D80-di-Q5E"/>
                         <outlet property="rhymeFive" destination="DmC-oX-EBR" id="g4h-b5-4RR"/>
                         <outlet property="rhymeFour" destination="pFf-wT-Y2N" id="SET-qg-mDe"/>
