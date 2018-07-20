@@ -28,9 +28,11 @@ class ListViewController: UIViewController{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewDidAppear(animated)
         rapListTableView.reloadData()
     }
+    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -93,6 +95,17 @@ extension ListViewController: UITableViewDataSource{
             
             rapNotes = CoreDataHelper.retrieveRapNotes()
         }
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        UIView.animate(withDuration: 0.3, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1.05,1.05,1)
+        },completion: { finished in
+            UIView.animate(withDuration: 0.1, animations: {
+                cell.layer.transform = CATransform3DMakeScale(1,1,1)
+            })
+        })
     }
     
 }

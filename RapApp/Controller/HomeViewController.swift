@@ -68,6 +68,9 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var stackViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var viewConstraint: NSLayoutConstraint!
+    
     // MARK: Override Functions
     
     override func viewDidLoad() {
@@ -241,7 +244,6 @@ class HomeViewController: UIViewController {
     //MARK: - Progress
     
     @objc func setProgressBar(){
-        
         // update the display
         // use poseDuration - 1 so that you display 20 steps of the the progress bar, from 0...19
         progressBar.progress = Float(indexProgressBar) / Float(poseDuration + 1)
@@ -333,6 +335,15 @@ class HomeViewController: UIViewController {
             for x in rhymeWordsArray {
                 x.text = ""
             }
+            progressBar.isHidden = true
+            progressBarTimer.invalidate()
+            UIView.animate(withDuration: 0.25) {
+                self.viewConstraint.constant = -17
+                self.stackViewConstraint.constant = 20
+                self.view.layoutIfNeeded()
+            }
+            
+            
         } else {
             randomButton.setTitle("Generate Rhymes", for: .normal)
             rapEditorTextView.isUserInteractionEnabled = false
@@ -343,13 +354,19 @@ class HomeViewController: UIViewController {
                 saveNotes()}
             rapNameTextField.text = ""
             rapEditorTextView.text = ""
+            progressBar.isHidden = false
             generateRandomWords()
+            progressBarTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.setProgressBar), userInfo: nil, repeats: true)
+            UIView.animate(withDuration: 0.25) {
+                self.viewConstraint.constant = 43
+                self.stackViewConstraint.constant = 80
+                self.view.layoutIfNeeded()
+            }
+            
         }
         
     }
     
-    
-
     
     func saveNotes(){
         
@@ -375,12 +392,12 @@ class HomeViewController: UIViewController {
             rapNote.content = rapEditorTextView.text ?? ""
             
             CoreDataHelper.saveRapNote()
-
+            
             
         }
         
-                
-
+        
+        
     }
     
     //Dismiss Keyboard

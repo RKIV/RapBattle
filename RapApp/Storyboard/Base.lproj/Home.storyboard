@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Origram.otf">
+            <string>Origram</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -19,11 +24,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aL4-r9-fJY">
-                                <rect key="frame" x="67.666666666666686" y="60" width="279" height="50"/>
+                                <rect key="frame" x="84.333333333333314" y="60" width="246" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="JmF-Z6-uVB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="Origram" family="Origram" pointSize="40"/>
                                 <color key="textColor" red="0.76470588235294112" green="0.027450980392156862" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -193,6 +198,21 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1o-By-lXj">
+                                <rect key="frame" x="35" y="190" width="344" height="256"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aD7-UT-0cd">
+                                        <rect key="frame" x="136" y="110" width="71" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" white="0.59839084201388892" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aD7-UT-0cd" firstAttribute="centerY" secondItem="I1o-By-lXj" secondAttribute="centerY" id="ZZr-WZ-Ezf"/>
+                                    <constraint firstItem="aD7-UT-0cd" firstAttribute="centerX" secondItem="I1o-By-lXj" secondAttribute="centerX" id="hGD-M6-qmg"/>
+                                </constraints>
+                            </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N05-wZ-VgD">
                                 <rect key="frame" x="35" y="190" width="344" height="256"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -220,21 +240,6 @@
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="40"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1o-By-lXj">
-                                <rect key="frame" x="35" y="190" width="344" height="256"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aD7-UT-0cd">
-                                        <rect key="frame" x="136" y="110" width="71" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <color key="textColor" white="0.59839084201388892" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="aD7-UT-0cd" firstAttribute="centerY" secondItem="I1o-By-lXj" secondAttribute="centerY" id="ZZr-WZ-Ezf"/>
-                                    <constraint firstItem="aD7-UT-0cd" firstAttribute="centerX" secondItem="I1o-By-lXj" secondAttribute="centerX" id="hGD-M6-qmg"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -304,6 +309,8 @@
                         <outlet property="rhymeThree" destination="McW-4C-kyC" id="o2S-6I-31R"/>
                         <outlet property="rhymeTwo" destination="HNX-eP-uGd" id="VPB-9a-n2f"/>
                         <outlet property="scrubberBar" destination="rsO-rO-d47" id="Sa8-aa-XRn"/>
+                        <outlet property="stackViewConstraint" destination="beh-6I-2pK" id="O7D-Sl-d9w"/>
+                        <outlet property="viewConstraint" destination="7Mw-0b-5PV" id="1kk-fw-Goc"/>
                         <segue destination="8Fi-M2-uaT" kind="show" identifier="notesList" id="8NL-Or-G90"/>
                     </connections>
                 </viewController>
