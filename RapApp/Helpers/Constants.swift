@@ -14,12 +14,6 @@ struct Constants {
         static let settings = "Settings"
     }
     
-    struct  Segues {
-        static let toHome = "toHome"
-        static let toSettings = "ShowSettings"
-        static let toNotes = "toNotes"
-    }
-    
     struct CoreData {
         
         static let entityNameRapNote = "RapNote"

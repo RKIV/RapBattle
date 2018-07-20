@@ -62,6 +62,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var musicNameButton: UIButton!
     
+    var rapNote: RapNote?
+    
     // MARK: Override Functions
     
     override func viewDidLoad() {
@@ -105,23 +107,43 @@ class HomeViewController: UIViewController {
         UIApplication.shared.isIdleTimerDisabled = true
         rapEditorTextView.isUserInteractionEnabled = false
         
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        self.view.addGestureRecognizer(tap)
+        
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        
-        guard let identifier = segue.identifier else {return}
-        
-        switch identifier {
-        case Constants.Segues.toSettings:
-            let destination = segue.destination as! SettingsViewController
-        case "addNote":
-            print("create note bar button item tapped")
-        default:
-            print("unexpected segue identifer")
+        if let rapNote = rapNote {
+            randomWord.text = rapNote.title
+            rapEditorTextView.text = rapNote.content
+        } else {
+            randomWord.text = "Title"
+            rapEditorTextView.text = ""
         }
-        
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//
+//        guard let identifier = segue.identifier else {return}
+//
+//        switch identifier {
+//        case Constants.Segues.toSettings:
+//            let destination = segue.destination as! SettingsViewController
+//        case "addNote":
+//            print("create note bar button item tapped")
+//        default:
+//            print("unexpected segue identifer")
+//        }
+//
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -145,7 +167,10 @@ class HomeViewController: UIViewController {
         
         if rapModeSwitch.isOn {
             
+            if rapEditorTextView.text != nil && rapEditorTextView.text != ""{
+                saveNotes()}
             performSegue(withIdentifier: "notesList", sender: nil)
+            
             
         } else {
             
@@ -313,19 +338,47 @@ class HomeViewController: UIViewController {
             randomButton.setTitle("My Raps", for: .normal)
             rapEditorTextView.isUserInteractionEnabled = true
             for x in rhymeWordsArray {
-                x.isHidden = true
+                x.text = ""
             }
         } else {
             randomButton.setTitle("Generate Rhymes", for: .normal)
             rapEditorTextView.isUserInteractionEnabled = false
             usedWordsCounter = []
-            for x in rhymeWordsArray {
-                x.isHidden = false
-            }
+            if rapEditorTextView.text != nil && rapEditorTextView.text != ""{
+                saveNotes()}
+            rapEditorTextView.text = ""
         }
         
     }
     
+    func saveNotes(){
+        
+        if rapNote != nil {
+            
+            rapNote?.title = rapEditorTextView.text ?? ""
+            rapNote?.content = rapEditorTextView.text ?? ""
+            
+            CoreDataHelper.saveRapNote()
+        } else {
+            
+            let rapNote = CoreDataHelper.newRapNote()
+            rapNote.title = rapEditorTextView.text ?? ""
+            rapNote.content = rapEditorTextView.text ?? ""
+            
+            CoreDataHelper.saveRapNote()
+
+            
+        }
+        
+                
+
+    }
+    
+    //Dismiss Keyboard
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
 }
 

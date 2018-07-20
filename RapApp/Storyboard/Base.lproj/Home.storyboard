@@ -196,9 +196,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N05-wZ-VgD">
                                 <rect key="frame" x="35" y="190" width="344" height="256"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="256" id="v4t-bF-g8L"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -232,6 +229,7 @@
                             <constraint firstItem="N05-wZ-VgD" firstAttribute="top" secondItem="TI2-lC-4KR" secondAttribute="bottom" constant="43" id="QWG-ut-Zw5"/>
                             <constraint firstItem="oFh-rK-Rzp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rf4-mp-Mph"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="x7P-iz-qHg" secondAttribute="trailing" constant="25" id="TS6-Gb-k8W"/>
+                            <constraint firstItem="DOh-iM-9sw" firstAttribute="top" secondItem="N05-wZ-VgD" secondAttribute="bottom" constant="45" id="Tyv-8S-3g4"/>
                             <constraint firstAttribute="trailing" secondItem="TI2-lC-4KR" secondAttribute="trailing" id="a8b-Jg-auh"/>
                             <constraint firstItem="EA1-gu-ywy" firstAttribute="top" secondItem="DOh-iM-9sw" secondAttribute="bottom" constant="25" id="bbA-H9-9Y6"/>
                             <constraint firstItem="BvD-bC-H1s" firstAttribute="top" secondItem="aL4-r9-fJY" secondAttribute="bottom" constant="80" id="beh-6I-2pK"/>

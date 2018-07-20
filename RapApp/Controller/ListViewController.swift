@@ -9,7 +9,7 @@
 import UIKit
 
 class ListViewController: UIViewController{
-
+    
     @IBOutlet weak var rapListTableView: UITableView!
     
     var rapNotes = [RapNote]() {
@@ -27,8 +27,9 @@ class ListViewController: UIViewController{
         
     }
     
-    @IBAction func unwindWithSegueToList(_ segue: UIStoryboardSegue){
-        rapNotes = CoreDataHelper.retrieveRapNotes()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        rapListTableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,15 +40,20 @@ class ListViewController: UIViewController{
         case "displayNote":
             guard let indexPath = rapListTableView.indexPathForSelectedRow else {return}
             let rapNote = rapNotes[indexPath.row]
-            let destination = segue.destination as! EditRapViewController
+            let destination = segue.destination as! HomeViewController
             destination.rapNote = rapNote
         case "addNote":
             print("create note bar button item tapped")
+            let destination = segue.destination as! HomeViewController
+            destination.rapNote = nil
+            
         default:
             print("unexpected segue identifer")
         }
     }
-
+    
+    
+    
 }
 
 extension ListViewController: UITableViewDataSource{
@@ -61,11 +67,14 @@ extension ListViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "rapCell", for: indexPath) as! RapNoteCell
         configureCell(cell: cell, forIndexPath: indexPath)
         let note = rapNotes[indexPath.row]
         cell.rapNameLabel.text = note.title
         return cell
+        
+        
     }
     
     func configureCell(cell: RapNoteCell, forIndexPath indexPath: IndexPath){
