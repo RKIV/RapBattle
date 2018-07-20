@@ -71,6 +71,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var stackViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var viewConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var textViewConstraint: NSLayoutConstraint!
     // MARK: Override Functions
     
     override func viewDidLoad() {
@@ -263,6 +264,7 @@ class HomeViewController: UIViewController {
         
     }
     
+    
     func testPlayButton() {
         if playState == 0{
             playState = 1
@@ -340,8 +342,10 @@ class HomeViewController: UIViewController {
             UIView.animate(withDuration: 0.25) {
                 self.viewConstraint.constant = -17
                 self.stackViewConstraint.constant = 20
+                self.textViewConstraint.constant = -17
                 self.view.layoutIfNeeded()
             }
+            progressBarTimer.invalidate()
             
             
         } else {
@@ -356,10 +360,10 @@ class HomeViewController: UIViewController {
             rapEditorTextView.text = ""
             progressBar.isHidden = false
             generateRandomWords()
-            progressBarTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(HomeViewController.setProgressBar), userInfo: nil, repeats: true)
             UIView.animate(withDuration: 0.25) {
                 self.viewConstraint.constant = 43
                 self.stackViewConstraint.constant = 80
+                self.textViewConstraint.constant = 43
                 self.view.layoutIfNeeded()
             }
             
